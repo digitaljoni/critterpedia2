@@ -33,10 +33,10 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
-  /// `critterpedia`
+  /// `Critterpedia`
   String get appTitle {
     return Intl.message(
-      'critterpedia',
+      'Critterpedia',
       name: 'appTitle',
       desc: '',
       args: [],
@@ -48,6 +48,66 @@ class S {
     return Intl.message(
       'Confirm',
       name: 'confirm',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Current Hour`
+  String get currentHour {
+    return Intl.message(
+      'Current Hour',
+      name: 'currentHour',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Current Month`
+  String get currentMonth {
+    return Intl.message(
+      'Current Month',
+      name: 'currentMonth',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Date/Time`
+  String get dateTime {
+    return Intl.message(
+      'Date/Time',
+      name: 'dateTime',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Hemisphere`
+  String get hemisphere {
+    return Intl.message(
+      'Hemisphere',
+      name: 'hemisphere',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Location`
+  String get location {
+    return Intl.message(
+      'Location',
+      name: 'location',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Location Tab`
+  String get locationTab {
+    return Intl.message(
+      'Location Tab',
+      name: 'locationTab',
       desc: '',
       args: [],
     );
@@ -73,21 +133,11 @@ class S {
     );
   }
 
-  /// `Location`
-  String get location {
+  /// `North`
+  String get north {
     return Intl.message(
-      'Location',
-      name: 'location',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Location Tab`
-  String get locationTab {
-    return Intl.message(
-      'Location Tab',
-      name: 'locationTab',
+      'North',
+      name: 'north',
       desc: '',
       args: [],
     );
@@ -133,6 +183,16 @@ class S {
     );
   }
 
+  /// `Environment`
+  String get settingsEnvironment {
+    return Intl.message(
+      'Environment',
+      name: 'settingsEnvironment',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Language`
   String get settingsLanguage {
     return Intl.message(
@@ -143,11 +203,11 @@ class S {
     );
   }
 
-  /// `Environment`
-  String get settingsEnvironment {
+  /// `South`
+  String get south {
     return Intl.message(
-      'Environment',
-      name: 'settingsEnvironment',
+      'South',
+      name: 'south',
       desc: '',
       args: [],
     );

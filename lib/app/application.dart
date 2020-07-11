@@ -1,7 +1,7 @@
+import 'package:critterpedia/config/styles/custom_theme.dart';
 import 'package:critterpedia/repositories/app_state_repository.dart';
 import 'package:critterpedia/services/app_state_local.dart';
-import 'package:critterpedia/app/config/styles/dark_theme.dart';
-import 'package:critterpedia/app/config/styles/light_theme.dart';
+
 import 'package:critterpedia/app/flavor.dart';
 import 'package:critterpedia/app/routes.dart';
 import 'package:critterpedia/utils/enums/env_type.dart';
@@ -40,8 +40,8 @@ class Application {
   void _initTheme() {
     // initialize theme based on files in config/theme
     _theme = AppTheme(
-      light: lightTheme,
-      dark: darkTheme,
+      light: customTheme,
+      dark: customTheme,
     );
   }
 

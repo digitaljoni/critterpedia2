@@ -23,18 +23,24 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
-    "appTitle" : MessageLookupByLibrary.simpleMessage("critterpedia"),
+    "appTitle" : MessageLookupByLibrary.simpleMessage("Critterpedia"),
     "confirm" : MessageLookupByLibrary.simpleMessage("Confirm"),
+    "currentHour" : MessageLookupByLibrary.simpleMessage("Current Hour"),
+    "currentMonth" : MessageLookupByLibrary.simpleMessage("Current Month"),
+    "dateTime" : MessageLookupByLibrary.simpleMessage("Date/Time"),
+    "hemisphere" : MessageLookupByLibrary.simpleMessage("Hemisphere"),
     "location" : MessageLookupByLibrary.simpleMessage("Location"),
     "locationTab" : MessageLookupByLibrary.simpleMessage("Location Tab"),
     "main" : MessageLookupByLibrary.simpleMessage("Main"),
     "mainTab" : MessageLookupByLibrary.simpleMessage("Main Tab"),
+    "north" : MessageLookupByLibrary.simpleMessage("North"),
     "profile" : MessageLookupByLibrary.simpleMessage("Profile"),
     "profileGreetings" : m0,
     "settings" : MessageLookupByLibrary.simpleMessage("Settings"),
     "settingsDarkMode" : MessageLookupByLibrary.simpleMessage("Dark Mode"),
     "settingsEnvironment" : MessageLookupByLibrary.simpleMessage("Environment"),
     "settingsLanguage" : MessageLookupByLibrary.simpleMessage("Language"),
+    "south" : MessageLookupByLibrary.simpleMessage("South"),
     "unknown" : MessageLookupByLibrary.simpleMessage("Unknown")
   };
 }

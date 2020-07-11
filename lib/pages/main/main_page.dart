@@ -4,6 +4,7 @@ import 'package:critterpedia/generated/l10n.dart';
 import 'package:critterpedia/pages/main/loading_page.dart';
 import 'package:critterpedia/pages/main/tabs/location_tab.dart';
 import 'package:critterpedia/pages/main/tabs/main_tab.dart';
+import 'package:critterpedia/pages/main/widgets/main_drawer.dart';
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -49,46 +50,20 @@ class _MainPageState extends State<MainPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(S.of(context).appTitle),
+        centerTitle: true,
         actions: <Widget>[
           IconButton(
-              icon: Icon(Icons.settings),
-              onPressed: () {
-                router.navigateTo(
-                  context,
-                  '/settings',
-                );
-              }),
+            icon: Icon(Icons.view_list),
+            onPressed: () {
+              router.navigateTo(
+                context,
+                '/settings',
+              );
+            },
+          ),
         ],
       ),
-      drawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: <Widget>[
-            DrawerHeader(
-              child: Text(
-                S.of(context).appTitle,
-              ),
-              decoration: BoxDecoration(
-                color: Theme.of(context).primaryColor,
-              ),
-            ),
-            ListTile(
-              title: Text(S.of(context).profile),
-              onTap: () {
-                Navigator.pop(context);
-                router.navigateTo(context, '/profile/4567');
-              },
-            ),
-            ListTile(
-              title: Text(S.of(context).settings),
-              onTap: () {
-                Navigator.pop(context);
-                router.navigateTo(context, '/settings');
-              },
-            ),
-          ],
-        ),
-      ),
+      drawer: MainDrawer(router: router),
       body: tabs[tabIndex],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: tabIndex,
