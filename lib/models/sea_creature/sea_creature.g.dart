@@ -19,8 +19,8 @@ SeaCreature _$SeaCreatureFromJson(Map<String, dynamic> json) {
     json['price'] as int,
     json['catch-phrase'] as String,
     json['museum-phrase'] as String,
-    json['image-uri'] as String,
-    json['icon-uri'] as String,
+    json['image_uri'] as String,
+    json['icon_uri'] as String,
     json['shadow'] as String,
     json['speed'] as String,
   );
@@ -35,8 +35,8 @@ Map<String, dynamic> _$SeaCreatureToJson(SeaCreature instance) =>
       'price': instance.price,
       'catch-phrase': instance.catchPhrase,
       'museum-phrase': instance.museumPhrase,
-      'image-uri': instance.imageUri,
-      'icon-uri': instance.iconUri,
+      'image_uri': instance.imageUri,
+      'icon_uri': instance.iconUri,
       'shadow': instance.shadow,
       'speed': instance.speed,
     };

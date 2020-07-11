@@ -1,6 +1,7 @@
 import 'package:critterpedia/app/app_view_model.dart';
 import 'package:critterpedia/app/application.dart';
 import 'package:critterpedia/generated/l10n.dart';
+import 'package:critterpedia/models/fish/fishes_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
@@ -19,6 +20,7 @@ class _AppState extends State<App> {
 
   final Application _application;
   AppViewModel _appViewModel;
+  FishesViewModel _fishesViewModel;
 
   @override
   void initState() {
@@ -28,6 +30,9 @@ class _AppState extends State<App> {
     _appViewModel = AppViewModel(
       repository: _application.appStateRepository,
     );
+
+    _fishesViewModel =
+        FishesViewModel(repository: _application.crittersRepository);
   }
 
   @override
@@ -35,7 +40,8 @@ class _AppState extends State<App> {
     return MultiProvider(
       providers: [
         Provider<Application>.value(value: _application),
-        ChangeNotifierProvider<AppViewModel>.value(value: _appViewModel)
+        ChangeNotifierProvider<AppViewModel>.value(value: _appViewModel),
+        ChangeNotifierProvider<FishesViewModel>.value(value: _fishesViewModel),
       ],
       child: _MaterialApp(),
     );

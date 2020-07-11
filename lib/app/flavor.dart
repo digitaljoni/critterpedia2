@@ -10,6 +10,7 @@ class Flavor {
   }
 
   EnvType envType = EnvType.PRODUCTION;
+  String baseUrl;
 
   static Flavor _instance;
   static Flavor get instance => _instance;

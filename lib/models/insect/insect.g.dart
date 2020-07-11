@@ -19,8 +19,8 @@ Insect _$InsectFromJson(Map<String, dynamic> json) {
     json['price'] as int,
     json['catch-phrase'] as String,
     json['museum-phrase'] as String,
-    json['image-uri'] as String,
-    json['icon-uri'] as String,
+    json['image_uri'] as String,
+    json['icon_uri'] as String,
     json['price-flick'] as int,
     json['shadow'] as String,
   );
@@ -34,8 +34,8 @@ Map<String, dynamic> _$InsectToJson(Insect instance) => <String, dynamic>{
       'price': instance.price,
       'catch-phrase': instance.catchPhrase,
       'museum-phrase': instance.museumPhrase,
-      'image-uri': instance.imageUri,
-      'icon-uri': instance.iconUri,
+      'image_uri': instance.imageUri,
+      'icon_uri': instance.iconUri,
       'price-flick': instance.priceFlick,
       'shadow': instance.shadow,
     };

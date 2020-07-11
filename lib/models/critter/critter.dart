@@ -45,10 +45,10 @@ abstract class Critter {
   @JsonKey(name: 'museum-phrase')
   final String museumPhrase;
 
-  @JsonKey(name: 'image-uri')
+  @JsonKey(name: 'image_uri')
   final String imageUri;
 
-  @JsonKey(name: 'icon-uri')
+  @JsonKey(name: 'icon_uri')
   final String iconUri;
 
   String get name => names?.en;

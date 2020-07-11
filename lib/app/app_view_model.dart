@@ -1,7 +1,7 @@
-import 'package:critterpedia/models/app_state.dart';
-import 'package:critterpedia/repositories/app_state_repository.dart';
-import 'package:critterpedia/utils/log/log.dart';
+import 'package:critterpedia/data/repositories/app_state_repository.dart';
 import 'package:critterpedia/generated/l10n.dart';
+import 'package:critterpedia/models/app_state.dart';
+import 'package:critterpedia/utils/log/log.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 

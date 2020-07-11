@@ -1,3 +1,4 @@
+import 'package:critterpedia/common_widgets/loading_widget.dart';
 import 'package:flutter/material.dart';
 
 class LoadingPage extends StatelessWidget {
@@ -6,9 +7,7 @@ class LoadingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: CircularProgressIndicator(),
-      ),
+      body: LoadingWidget(),
     );
   }
 }

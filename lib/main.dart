@@ -6,4 +6,7 @@ void main() => Development();
 class Development extends Flavor {
   @override
   EnvType envType = EnvType.DEVELOPMENT;
+
+  @override
+  String baseUrl = 'http://acnhapi.com/v1/';
 }
