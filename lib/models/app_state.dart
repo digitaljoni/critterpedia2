@@ -24,7 +24,7 @@ class AppState {
   bool get isReady => _isReady();
 
   bool _isReady() {
-    return isDarkMode != null && currentLocale != null;
+    return false;
   }
 
   @override

@@ -1,5 +1,7 @@
+import 'package:critterpedia/app/app_view_model.dart';
 import 'package:critterpedia/app/application.dart';
 import 'package:critterpedia/generated/l10n.dart';
+import 'package:critterpedia/pages/main/loading_page.dart';
 import 'package:critterpedia/pages/main/tabs/location_tab.dart';
 import 'package:critterpedia/pages/main/tabs/main_tab.dart';
 import 'package:fluro/fluro.dart';
@@ -9,7 +11,7 @@ import 'package:provider/provider.dart';
 class MainPage extends StatefulWidget {
   MainPage({Key key}) : super(key: key);
 
-  static const routeName = '/main';
+  static const routeName = '/';
   static var routeHandler = Handler(
       handlerFunc: (BuildContext context, Map<String, List<String>> params) {
     return MainPage();
@@ -35,6 +37,12 @@ class _MainPageState extends State<MainPage> {
 
   @override
   Widget build(BuildContext context) {
+    final appState = Provider.of<AppViewModel>(context).appState;
+
+    if (!appState.isReady) {
+      return LoadingPage();
+    }
+
     final application = Provider.of<Application>(context, listen: false);
     final router = application.router;
 

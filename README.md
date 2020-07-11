@@ -1,40 +1,10 @@
 # critterpedia
 
-A Flutter Starter Kit
+Critterpedia is an interactive companion for the ACNH players. It helps you discover new critters in your island.
 
 ## Getting Started
 
 This project is a starting point for a Flutter application. It is recommended that you download this repo instead of cloning it so that you can start fresh. 
-
-## Renaming For Your Project
-
-You can also use the  following pub package in order to rename your project. You need to install package called rename globally.
-
-```
-pub global activate rename
-```
-
-1. Extract zip to a directory. 
-2. Rename the directory to your new project name. i.e. foodly
-
-```
-mv critterpedia foodly
-```
-
-3. Go to the directory of your project
-
-```
-cd foodly
-```
-
-4. Run the rename package with the following parameters
-
-```
-pub global run rename --bundleId com.yourdomain.foodly --appname 'Foodly'
-```
-
-
-
 
 ### Flavor
 
