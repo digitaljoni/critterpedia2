@@ -18,6 +18,13 @@ class Fishes extends Critters<Fish> {
 
     return Fishes(allMap);
   }
+
+  Map<String, dynamic> toJson() => allMap.map(
+        (String k, Fish v) => MapEntry(
+          k,
+          v.toJson(),
+        ),
+      );
 }
 
 @JsonSerializable()

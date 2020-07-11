@@ -18,6 +18,13 @@ class Insects extends Critters<Insect> {
 
     return Insects(allMap);
   }
+
+  Map<String, dynamic> toJson() => allMap.map(
+        (String k, Insect v) => MapEntry(
+          k,
+          v.toJson(),
+        ),
+      );
 }
 
 @JsonSerializable()

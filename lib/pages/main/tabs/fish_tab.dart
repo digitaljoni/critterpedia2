@@ -1,6 +1,9 @@
+import 'package:critterpedia/common_widgets/critter_icons_icons.dart';
 import 'package:critterpedia/common_widgets/loading_widget.dart';
 import 'package:critterpedia/models/fish/fish.dart';
 import 'package:critterpedia/models/fish/fishes_view_model.dart';
+import 'package:critterpedia/pages/main/widgets/critter_grid_tile.dart';
+import 'package:critterpedia/pages/main/widgets/critter_grid_view.dart';
 import 'package:critterpedia/utils/log/log.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -13,6 +16,10 @@ class FishTab extends StatefulWidget {
 }
 
 class _FishTabState extends State<FishTab> {
+  void _onTapHandler(String id) {
+    Log.info('show fish#$id');
+  }
+
   @override
   void initState() {
     super.initState();
@@ -21,8 +28,6 @@ class _FishTabState extends State<FishTab> {
         Provider.of<FishesViewModel>(context, listen: false);
 
     fishesViewModel.getFishes();
-
-    Log.shout('FishTab executed');
   }
 
   @override
@@ -34,36 +39,16 @@ class _FishTabState extends State<FishTab> {
       return LoadingWidget();
     }
 
-    return GridView.count(
-      padding: EdgeInsets.symmetric(
-        horizontal: 8.0,
-        vertical: 8.0,
-      ),
-      crossAxisCount: 3,
-      children: fishes.getList
-          .map(
-            (Fish fish) => GridTile(
-              child: Container(
-                margin: EdgeInsets.symmetric(
-                  horizontal: 8.0,
-                  vertical: 8.0,
-                ),
-                padding: EdgeInsets.all(8.0),
-                decoration: BoxDecoration(
-                  color: Colors.white10,
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(8.0),
-                  ),
-                ),
-                child: Center(
-                  child: Image.network(
-                    fish.iconUri,
-                  ),
-                ),
-              ),
-            ),
-          )
-          .toList(),
-    );
+    List<Widget> _gridTiles = fishes.getList
+        .map(
+          (Fish fish) => CritterGridTile(
+            iconUri: fish.iconUri,
+            iconData: CritterIcons.fish,
+            onTap: () => _onTapHandler('${fish.id}'),
+          ),
+        )
+        .toList();
+
+    return CritterGridView(children: _gridTiles);
   }
 }

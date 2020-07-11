@@ -12,11 +12,7 @@ class FishesViewModel extends ChangeNotifier {
   Fishes get fishes => _fishes;
 
   Future<void> getFishes() async {
-    if (_fishes != null) {
-      return;
-    }
     _fishes = await repository.getFishes();
-
     notifyListeners();
   }
 }

@@ -11,7 +11,7 @@ class CrittersRemoteDataProvider {
   final HttpClientService clientService;
 
   final fishPath = 'fish/';
-  final insectPath = 'bug/';
+  final insectPath = 'bugs/';
   final seaCreaturesPath = 'sea/';
 
   Future<Insects> getInsects() async {

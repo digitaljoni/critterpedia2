@@ -1,6 +1,7 @@
 import 'package:critterpedia/app/flavor.dart';
 import 'package:critterpedia/app/routes.dart';
 import 'package:critterpedia/config/styles/custom_theme.dart';
+import 'package:critterpedia/data/data_providers/critters_local_data_provider.dart';
 import 'package:critterpedia/data/data_providers/critters_remote_data_provider.dart';
 import 'package:critterpedia/data/repositories/app_state_repository.dart';
 import 'package:critterpedia/data/repositories/critters_repository.dart';
@@ -86,6 +87,7 @@ class Application {
 
     crittersRepository = CrittersRepository(
       remoteDataProvider: CrittersRemoteDataProvider(_clientService),
+      localDataProvider: CrittersLocalDataProvider(_prefs),
     );
   }
 }
