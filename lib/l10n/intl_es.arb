@@ -1,0 +1,15 @@
+{
+    "appTitle": "critterpedia (ES)",
+    "confirm": "Confirmar",
+    "main": "Main",
+    "mainTab": "Main Tab",
+    "location": "Location",
+    "locationTab": "Location Tab",
+    "profile": "Perfil",
+    "profileGreetings": "Hola, {name}",
+    "settings": "Ajustes",
+    "settingsDarkMode": "Modo Oscuro",
+    "settingsLanguage": "Idioma",
+    "settingsEnvironment": "Environment",
+    "unknown": "Unknown"
+}
