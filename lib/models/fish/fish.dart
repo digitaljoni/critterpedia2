@@ -5,6 +5,21 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'fish.g.dart';
 
+class Fishes extends Critters<Fish> {
+  Fishes(Map<String, Fish> allMap) : super(allMap);
+
+  factory Fishes.fromJson(Map<String, dynamic> json) {
+    final allMap = json.map(
+      (String k, dynamic v) => MapEntry(
+        k,
+        Fish.fromJson(v),
+      ),
+    );
+
+    return Fishes(allMap);
+  }
+}
+
 @JsonSerializable()
 class Fish extends Critter {
   Fish(

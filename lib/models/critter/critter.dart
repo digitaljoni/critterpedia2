@@ -1,7 +1,16 @@
 import 'package:critterpedia/models/critter/availability.dart';
 import 'package:critterpedia/models/critter/names.dart';
+
 import 'package:critterpedia/utils/constants/month_names.dart';
 import 'package:json_annotation/json_annotation.dart';
+
+abstract class Critters<T extends Critter> {
+  Critters(this.allMap);
+
+  final Map<String, T> allMap;
+
+  List<T> get getList => allMap.values.toList();
+}
 
 abstract class Critter {
   Critter(
