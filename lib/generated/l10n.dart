@@ -83,11 +83,31 @@ class S {
     );
   }
 
+  /// `Fish`
+  String get fish {
+    return Intl.message(
+      'Fish',
+      name: 'fish',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Hemisphere`
   String get hemisphere {
     return Intl.message(
       'Hemisphere',
       name: 'hemisphere',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Insects`
+  String get insects {
+    return Intl.message(
+      'Insects',
+      name: 'insects',
       desc: '',
       args: [],
     );
@@ -160,6 +180,16 @@ class S {
       name: 'profileGreetings',
       desc: '',
       args: [name],
+    );
+  }
+
+  /// `Sea Creatures`
+  String get seaCreatures {
+    return Intl.message(
+      'Sea Creatures',
+      name: 'seaCreatures',
+      desc: '',
+      args: [],
     );
   }
 

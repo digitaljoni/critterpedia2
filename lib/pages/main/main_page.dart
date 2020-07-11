@@ -1,9 +1,11 @@
 import 'package:critterpedia/app/app_view_model.dart';
 import 'package:critterpedia/app/application.dart';
+import 'package:critterpedia/common_widgets/critter_icons_icons.dart';
 import 'package:critterpedia/generated/l10n.dart';
 import 'package:critterpedia/pages/main/loading_page.dart';
-import 'package:critterpedia/pages/main/tabs/location_tab.dart';
-import 'package:critterpedia/pages/main/tabs/main_tab.dart';
+import 'package:critterpedia/pages/main/tabs/fish_tab.dart';
+import 'package:critterpedia/pages/main/tabs/insects_tab.dart';
+import 'package:critterpedia/pages/main/tabs/sea_creatures_tab.dart';
 import 'package:critterpedia/pages/main/widgets/main_drawer.dart';
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
@@ -26,8 +28,9 @@ class _MainPageState extends State<MainPage> {
   int tabIndex;
 
   List<Widget> tabs = [
-    MainTab(),
-    LocationTab(),
+    InsectsTab(),
+    FishTab(),
+    SeaCreaturesTab(),
   ];
 
   @override
@@ -66,7 +69,10 @@ class _MainPageState extends State<MainPage> {
       drawer: MainDrawer(router: router),
       body: tabs[tabIndex],
       bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
         currentIndex: tabIndex,
+        selectedFontSize: 14.0,
+        unselectedFontSize: 14.0,
         onTap: (int index) {
           setState(() {
             tabIndex = index;
@@ -74,12 +80,16 @@ class _MainPageState extends State<MainPage> {
         },
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            title: Text('Home'),
+            icon: Icon(CritterIcons.insect),
+            title: Text(S.of(context).insects),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.location_on),
-            title: Text('Location'),
+            icon: Icon(CritterIcons.fish),
+            title: Text(S.of(context).fish),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(CritterIcons.sea),
+            title: Text(S.of(context).seaCreatures),
           ),
         ],
       ),
