@@ -11,14 +11,21 @@ class FilterViewModel extends ChangeNotifier {
     _startTimer();
   }
   Filter _filter = Filter.empty();
-  Timer _timer;
+  bool _isGridView = true;
 
+  Timer _timer;
   int _currentMonth;
   int _currentHour;
 
   Filter get filter => _filter;
   int get currentMonth => _currentMonth;
   int get currentHour => _currentHour;
+  bool get isGridView => _isGridView;
+
+  void toggleGridView() {
+    _isGridView = !_isGridView;
+    notifyListeners();
+  }
 
   void setDefault() {
     final today = DateTime.now();

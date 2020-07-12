@@ -1,10 +1,6 @@
-import 'package:critterpedia/common_widgets/critter_icons_icons.dart';
 import 'package:critterpedia/common_widgets/loading_widget.dart';
-import 'package:critterpedia/models/insect/insect.dart';
 import 'package:critterpedia/models/insect/insects_view_model.dart';
-import 'package:critterpedia/pages/main/widgets/critter_grid_tile.dart';
-import 'package:critterpedia/pages/main/widgets/critter_grid_view.dart';
-import 'package:critterpedia/utils/log/log.dart';
+import 'package:critterpedia/pages/main/widgets/critter_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -16,10 +12,6 @@ class InsectsTab extends StatefulWidget {
 }
 
 class _InsectsTabState extends State<InsectsTab> {
-  void _onTapHandler(String id) {
-    Log.info('show fish#$id');
-  }
-
   @override
   void initState() {
     super.initState();
@@ -39,16 +31,6 @@ class _InsectsTabState extends State<InsectsTab> {
       return LoadingWidget();
     }
 
-    List<Widget> _gridTiles = insects.getList
-        .map(
-          (Insect insect) => CritterGridTile(
-            critter: insect,
-            iconData: CritterIcons.insect,
-            onTap: () => _onTapHandler('${insect.id}'),
-          ),
-        )
-        .toList();
-
-    return CritterGridView(children: _gridTiles);
+    return CritterWidget(insects);
   }
 }

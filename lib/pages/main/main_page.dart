@@ -2,6 +2,7 @@ import 'package:critterpedia/app/app_view_model.dart';
 import 'package:critterpedia/app/application.dart';
 import 'package:critterpedia/common_widgets/critter_icons_icons.dart';
 import 'package:critterpedia/generated/l10n.dart';
+import 'package:critterpedia/models/filter/filter_view_model.dart';
 import 'package:critterpedia/pages/main/loading_page.dart';
 import 'package:critterpedia/pages/main/tabs/fish_tab.dart';
 import 'package:critterpedia/pages/main/tabs/insects_tab.dart';
@@ -58,18 +59,21 @@ class _MainPageState extends State<MainPage> {
         title: Text(S.of(context).appTitle),
         centerTitle: true,
         actions: <Widget>[
-          IconButton(
-            icon: Icon(Icons.view_list),
-            onPressed: () {
-              router.navigateTo(
-                context,
-                '/settings',
-              );
-            },
-          ),
+          GridViewToggle(),
         ],
         bottom: PreferredSize(
-          child: Text(format.format(DateTime.now())),
+          child: Padding(
+            padding: EdgeInsets.all(8.0),
+            child: Consumer<FilterViewModel>(
+              builder: (context, value, _) {
+                return Text(
+                  format.format(
+                    DateTime.now(),
+                  ),
+                );
+              },
+            ),
+          ),
           preferredSize: const Size.fromHeight(24.0),
         ),
       ),
@@ -100,6 +104,27 @@ class _MainPageState extends State<MainPage> {
           ),
         ],
       ),
+    );
+  }
+}
+
+class GridViewToggle extends StatelessWidget {
+  const GridViewToggle({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final filterViewModel = Provider.of<FilterViewModel>(context);
+    return IconButton(
+      icon: filterViewModel.isGridView
+          ? Icon(Icons.view_list)
+          : Icon(
+              Icons.view_module,
+            ),
+      onPressed: () {
+        filterViewModel.toggleGridView();
+      },
     );
   }
 }
