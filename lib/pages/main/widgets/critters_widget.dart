@@ -1,3 +1,4 @@
+import 'package:critterpedia/app/application.dart';
 import 'package:critterpedia/common_widgets/critter_icons_icons.dart';
 import 'package:critterpedia/models/critter/critter.dart';
 import 'package:critterpedia/models/filter/filter_view_model.dart';
@@ -5,20 +6,24 @@ import 'package:critterpedia/models/fish/fish.dart';
 import 'package:critterpedia/models/sea_creature/sea_creature.dart';
 import 'package:critterpedia/pages/main/widgets/critter_grid_tile.dart';
 import 'package:critterpedia/pages/main/widgets/critter_list_tile.dart';
-import 'package:critterpedia/pages/main/widgets/critter_list_view.dart';
+import 'package:critterpedia/pages/main/widgets/critters_list_view.dart';
 import 'package:critterpedia/utils/log/log.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'critter_grid_view.dart';
+import 'critters_grid_view.dart';
 
-class CritterWidget extends StatelessWidget {
-  const CritterWidget(this.critters, {Key key}) : super(key: key);
+class CrittersWidget extends StatelessWidget {
+  const CrittersWidget(this.critters, {Key key}) : super(key: key);
 
   final Critters critters;
 
   void _onTapHandler(BuildContext context, String routePath) {
+    final application = Provider.of<Application>(context, listen: false);
+    final router = application.router;
+
     Log.info('navigateTo: $routePath');
+    router.navigateTo(context, '$routePath');
   }
 
   @override
@@ -41,7 +46,7 @@ class CritterWidget extends StatelessWidget {
 
     final critterList = critters.getList.map(
       (Critter critter) {
-        final critterRoute = '$routePath${critter.id}';
+        final critterRoute = '$routePath${critter.fileName}';
 
         return (filterViewModel.isGridView)
             ? CritterGridTile(
@@ -58,7 +63,7 @@ class CritterWidget extends StatelessWidget {
     ).toList();
 
     return filterViewModel.isGridView
-        ? CritterGridView(children: critterList)
-        : CritterListView(children: critterList);
+        ? CrittersGridView(children: critterList)
+        : CrittersListView(children: critterList);
   }
 }

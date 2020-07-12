@@ -2,6 +2,6 @@
 extension CapExtension on String {
   String get inCaps => '${this[0].toUpperCase()}${this.substring(1)}';
   String get allInCaps => this.toUpperCase();
-  String get titleCaps =>
+  String get titleCase =>
       this.split(' ').map((String s) => s.inCaps).toList().join(' ');
 }

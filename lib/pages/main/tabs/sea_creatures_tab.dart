@@ -1,6 +1,6 @@
 import 'package:critterpedia/common_widgets/loading_widget.dart';
 import 'package:critterpedia/models/sea_creature/sea_creatures_view_model.dart';
-import 'package:critterpedia/pages/main/widgets/critter_widget.dart';
+import 'package:critterpedia/pages/main/widgets/critters_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -31,6 +31,6 @@ class _SeaCreaturesTabState extends State<SeaCreaturesTab> {
       return LoadingWidget();
     }
 
-    return CritterWidget(seaCreatures);
+    return CrittersWidget(seaCreatures);
   }
 }

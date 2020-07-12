@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class CritterGridView extends StatelessWidget {
-  const CritterGridView({
+class CrittersListView extends StatelessWidget {
+  const CrittersListView({
     Key key,
     @required this.children,
   }) : super(key: key);
@@ -10,12 +10,11 @@ class CritterGridView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GridView.count(
+    return ListView(
       padding: EdgeInsets.symmetric(
         horizontal: 8.0,
         vertical: 8.0,
       ),
-      crossAxisCount: 3,
       children: children,
     );
   }

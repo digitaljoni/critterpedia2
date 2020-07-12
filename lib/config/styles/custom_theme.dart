@@ -15,6 +15,18 @@ final ThemeData customTheme = ThemeData.dark().copyWith(
   ),
   scaffoldBackgroundColor: backgroundColor,
   canvasColor: navigationColor,
+  cardColor: Colors.white12,
+  cardTheme: CardTheme(
+    color: Colors.white24,
+    elevation: 0.0,
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.all(
+        Radius.circular(
+          8.0,
+        ),
+      ),
+    ),
+  ),
 );
 
 // ThemeData(

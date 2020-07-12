@@ -1,12 +1,14 @@
 import 'package:critterpedia/pages/pages.dart';
+
 import 'package:fluro/fluro.dart';
 
 class Routes {
   static var routeHandlers = <String, Handler>{
     MainPage.routeName: MainPage.routeHandler,
-    ProfilePage.routeName: ProfilePage.routeHandler,
     LoginPage.routeName: LoginPage.routeHandler,
-    SettingsPage.routeName: SettingsPage.routeHandler,
+    FishPage.routeName: FishPage.routeHandler,
+    SeaCreaturePage.routeName: SeaCreaturePage.routeHandler,
+    InsectPage.routeName: InsectPage.routeHandler,
   };
 
   static void configureRoutes(Router router) {

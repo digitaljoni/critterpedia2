@@ -70,12 +70,12 @@ class CritterListTile extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Text(
-                        '${critter.name}'.titleCaps,
+                        '${critter.name}'.titleCase,
                         style: Theme.of(context).textTheme.subtitle1,
                       ),
                       Text(
                         '${filter.isNorth ? critter.getMonthAvailableNorth : critter.getMonthAvailableSouth}'
-                            .titleCaps,
+                            .titleCase,
                         style: Theme.of(context).textTheme.bodyText1.copyWith(
                               color: Colors.white38,
                             ),
