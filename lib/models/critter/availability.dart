@@ -1,3 +1,4 @@
+import 'package:critterpedia/utils/enums/hemisphere.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'availability.g.dart';
@@ -14,7 +15,7 @@ class Availability {
     this.rarity,
     this.northernMonthList,
     this.southernMonthList,
-    this.timeArray,
+    this.timeList,
   );
 
   factory Availability.fromJson(Map<String, dynamic> json) =>
@@ -43,5 +44,18 @@ class Availability {
   final List<int> southernMonthList;
 
   @JsonKey(name: 'time-array')
-  final List<int> timeArray;
+  final List<int> timeList;
+
+  bool isAvailable(
+    Hemisphere hemisphere,
+    int month,
+    int hour,
+  ) {
+    final monthList =
+        hemisphere == Hemisphere.north ? northernMonthList : southernMonthList;
+
+    return month != null
+        ? monthList.contains(month)
+        : true && hour != null ? timeList.contains(hour) : true;
+  }
 }

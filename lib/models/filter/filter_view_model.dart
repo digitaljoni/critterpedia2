@@ -1,11 +1,17 @@
+import 'dart:async';
+
 import 'package:critterpedia/models/filter/filter.dart';
+import 'package:critterpedia/utils/enums/hemisphere.dart';
+import 'package:critterpedia/utils/log/log.dart';
 import 'package:flutter/material.dart';
 
 class FilterViewModel extends ChangeNotifier {
   FilterViewModel() {
     setDefault();
+    _startTimer();
   }
   Filter _filter = Filter.empty();
+  Timer _timer;
 
   int _currentMonth;
   int _currentHour;
@@ -56,5 +62,34 @@ class FilterViewModel extends ChangeNotifier {
   void settHour(int hour) {
     _filter = _filter.copyWith(month: hour);
     notifyListeners();
+  }
+
+  void _startTimer() {
+    _stopTimer();
+    _timer =
+        Timer.periodic(Duration(seconds: 30), (timer) => updateCurrentHour());
+  }
+
+  void _stopTimer() {
+    _timer?.cancel();
+  }
+
+  void updateCurrentHour() {
+    final newHour = DateTime.now().hour;
+
+    Log.info('checking: newHour = $newHour | currentHour = $currentHour');
+    if (_currentHour == newHour) {
+      return;
+    }
+
+    _currentHour = newHour;
+    Log.info('change: newHour = $newHour | currentHour = $currentHour');
+    notifyListeners();
+  }
+
+  @override
+  void dispose() {
+    _stopTimer();
+    super.dispose();
   }
 }

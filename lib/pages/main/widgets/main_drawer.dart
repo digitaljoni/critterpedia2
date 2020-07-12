@@ -1,5 +1,5 @@
 import 'package:critterpedia/generated/l10n.dart';
-import 'package:critterpedia/models/filter/filter.dart';
+
 import 'package:critterpedia/models/filter/filter_view_model.dart';
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
@@ -23,10 +23,25 @@ class MainDrawer extends StatelessWidget {
       child: ListView(
         children: <Widget>[
           Container(
-            padding: EdgeInsets.all(16.0),
-            child: Text(
-              S.of(context).settings,
-              style: Theme.of(context).textTheme.headline6,
+            padding: EdgeInsets.only(
+              left: 16.0,
+              top: 8.0,
+            ),
+            child: Row(
+              children: <Widget>[
+                Expanded(
+                  child: Text(
+                    S.of(context).settings,
+                    style: Theme.of(context).textTheme.headline6,
+                  ),
+                ),
+                IconButton(
+                  icon: Icon(Icons.clear),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                ),
+              ],
             ),
           ),
           DrawerTitle(S.of(context).hemisphere),

@@ -42,7 +42,7 @@ class _FishTabState extends State<FishTab> {
     List<Widget> _gridTiles = fishes.getList
         .map(
           (Fish fish) => CritterGridTile(
-            iconUri: fish.iconUri,
+            critter: fish,
             iconData: CritterIcons.fish,
             onTap: () => _onTapHandler('${fish.id}'),
           ),

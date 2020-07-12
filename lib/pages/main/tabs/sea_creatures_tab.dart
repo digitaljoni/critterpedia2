@@ -42,7 +42,7 @@ class _SeaCreaturesTabState extends State<SeaCreaturesTab> {
     List<Widget> _gridTiles = seaCreatures.getList
         .map(
           (SeaCreature seaCreature) => CritterGridTile(
-            iconUri: seaCreature.iconUri,
+            critter: seaCreature,
             iconData: CritterIcons.sea,
             onTap: () => _onTapHandler('${seaCreature.id}'),
           ),

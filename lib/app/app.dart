@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:critterpedia/app/app_view_model.dart';
 import 'package:critterpedia/app/application.dart';
 import 'package:critterpedia/generated/l10n.dart';
@@ -22,6 +24,9 @@ class _AppState extends State<App> {
   _AppState(this._application);
 
   final Application _application;
+
+  Timer timer;
+
   AppViewModel _appViewModel;
   FishesViewModel _fishesViewModel;
   InsectsViewModel _insectsViewModel;

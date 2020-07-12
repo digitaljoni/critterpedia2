@@ -2,6 +2,7 @@ import 'package:critterpedia/models/critter/availability.dart';
 import 'package:critterpedia/models/critter/names.dart';
 
 import 'package:critterpedia/utils/constants/month_names.dart';
+import 'package:critterpedia/utils/enums/hemisphere.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 abstract class Critters<T extends Critter> {
@@ -75,5 +76,17 @@ abstract class Critter {
         return monthNames[month];
       }).join('-');
     }).join(' & ');
+  }
+
+  bool isAvailable(
+    Hemisphere hemisphere,
+    int month,
+    int hour,
+  ) {
+    if (month == null && hour == null) {
+      return true;
+    }
+
+    return availability.isAvailable(hemisphere, month, hour);
   }
 }

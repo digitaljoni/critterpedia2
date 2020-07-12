@@ -1,4 +1,4 @@
-enum Hemisphere { north, south }
+import 'package:critterpedia/utils/enums/hemisphere.dart';
 
 class Filter {
   Filter(

@@ -32,5 +32,5 @@ Map<String, dynamic> _$AvailabilityToJson(Availability instance) =>
       'rarity': instance.rarity,
       'month-array-northern': instance.northernMonthList,
       'month-array-southern': instance.southernMonthList,
-      'time-array': instance.timeArray,
+      'time-array': instance.timeList,
     };
