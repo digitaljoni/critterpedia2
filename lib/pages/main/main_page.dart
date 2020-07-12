@@ -9,6 +9,7 @@ import 'package:critterpedia/pages/main/tabs/sea_creatures_tab.dart';
 import 'package:critterpedia/pages/main/widgets/main_drawer.dart';
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 
 class MainPage extends StatefulWidget {
@@ -50,6 +51,8 @@ class _MainPageState extends State<MainPage> {
     final application = Provider.of<Application>(context, listen: false);
     final router = application.router;
 
+    final format = DateFormat('dd MMMM yyyy');
+
     return Scaffold(
       appBar: AppBar(
         title: Text(S.of(context).appTitle),
@@ -65,6 +68,10 @@ class _MainPageState extends State<MainPage> {
             },
           ),
         ],
+        bottom: PreferredSize(
+          child: Text(format.format(DateTime.now())),
+          preferredSize: const Size.fromHeight(24.0),
+        ),
       ),
       drawer: MainDrawer(router: router),
       body: tabs[tabIndex],

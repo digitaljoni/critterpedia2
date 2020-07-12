@@ -1,6 +1,7 @@
 import 'package:critterpedia/app/app_view_model.dart';
 import 'package:critterpedia/app/application.dart';
 import 'package:critterpedia/generated/l10n.dart';
+import 'package:critterpedia/models/filter/filter_view_model.dart';
 import 'package:critterpedia/models/fish/fishes_view_model.dart';
 import 'package:critterpedia/models/insect/insects_view_model.dart';
 import 'package:critterpedia/models/sea_creature/sea_creatures_view_model.dart';
@@ -26,6 +27,8 @@ class _AppState extends State<App> {
   InsectsViewModel _insectsViewModel;
   SeaCreaturesViewModel _seaCreaturesViewModel;
 
+  FilterViewModel _filterViewModel;
+
   @override
   void initState() {
     super.initState();
@@ -43,6 +46,8 @@ class _AppState extends State<App> {
 
     _seaCreaturesViewModel =
         SeaCreaturesViewModel(repository: _application.crittersRepository);
+
+    _filterViewModel = FilterViewModel();
   }
 
   @override
@@ -51,6 +56,7 @@ class _AppState extends State<App> {
       providers: [
         Provider<Application>.value(value: _application),
         ChangeNotifierProvider<AppViewModel>.value(value: _appViewModel),
+        ChangeNotifierProvider<FilterViewModel>.value(value: _filterViewModel),
         ChangeNotifierProvider<FishesViewModel>.value(value: _fishesViewModel),
         ChangeNotifierProvider<InsectsViewModel>.value(
             value: _insectsViewModel),

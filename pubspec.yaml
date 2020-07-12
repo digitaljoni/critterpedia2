@@ -17,6 +17,7 @@ dependencies:
   json_annotation: ^3.0.1
   http: ^0.12.1
   cached_network_image: ^2.2.0+1
+  intl: ^0.16.1
 dev_dependencies:
   test: ^1.14.0
   json_serializable: ^3.3.0

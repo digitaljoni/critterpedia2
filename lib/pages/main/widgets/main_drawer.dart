@@ -1,6 +1,9 @@
 import 'package:critterpedia/generated/l10n.dart';
+import 'package:critterpedia/models/filter/filter.dart';
+import 'package:critterpedia/models/filter/filter_view_model.dart';
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class MainDrawer extends StatelessWidget {
   const MainDrawer({
@@ -12,6 +15,10 @@ class MainDrawer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final filterViewModel = Provider.of<FilterViewModel>(context);
+
+    final filter = filterViewModel.filter;
+
     return Drawer(
       child: ListView(
         children: <Widget>[
@@ -19,34 +26,62 @@ class MainDrawer extends StatelessWidget {
             padding: EdgeInsets.all(16.0),
             child: Text(
               S.of(context).settings,
-              style: Theme.of(context).textTheme.headline5,
+              style: Theme.of(context).textTheme.headline6,
             ),
           ),
           DrawerTitle(S.of(context).hemisphere),
           DrawerTile(
+            onTap: !filter.isNorth
+                ? () {
+                    filterViewModel.setNorthHemisphere();
+                  }
+                : null,
             titleText: S.of(context).north,
-            trailing: Icon(
-              Icons.check,
-              color: Theme.of(context).accentColor,
-            ),
+            trailing: filter.isNorth
+                ? Icon(
+                    Icons.check,
+                    color: Theme.of(context).accentColor,
+                  )
+                : null,
           ),
           DrawerTile(
+            onTap: !filter.isSouth
+                ? () {
+                    filterViewModel.setSouthHemisphere();
+                  }
+                : null,
             titleText: S.of(context).south,
+            trailing: filter.isSouth
+                ? Icon(
+                    Icons.check,
+                    color: Theme.of(context).accentColor,
+                  )
+                : null,
           ),
           DrawerTitle(S.of(context).dateTime),
           DrawerTile(
+            onTap: () {
+              filterViewModel.toggleCurrentMonth();
+            },
             titleText: S.of(context).currentMonth,
-            trailing: Icon(
-              Icons.check,
-              color: Theme.of(context).accentColor,
-            ),
+            trailing: filter.isCurrentMonth
+                ? Icon(
+                    Icons.check,
+                    color: Theme.of(context).accentColor,
+                  )
+                : null,
           ),
           DrawerTile(
+            onTap: () {
+              filterViewModel.toggleCurrentHour();
+            },
             titleText: S.of(context).currentHour,
-            trailing: Icon(
-              Icons.check,
-              color: Theme.of(context).accentColor,
-            ),
+            trailing: filter.isCurrentHour
+                ? Icon(
+                    Icons.check,
+                    color: Theme.of(context).accentColor,
+                  )
+                : null,
           ),
           DrawerTitle(S.of(context).settingsLanguage),
           Column(
