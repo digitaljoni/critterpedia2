@@ -19,6 +19,7 @@ class SectionTextWidget extends StatelessWidget {
           style: Theme.of(context).textTheme.headline6.copyWith(
                 fontWeight: FontWeight.normal,
               ),
+          textAlign: TextAlign.center,
         ),
       ),
     );

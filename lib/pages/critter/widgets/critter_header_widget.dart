@@ -12,19 +12,18 @@ class CritterHeaderWidget extends StatelessWidget {
   final Critter critter;
   Widget topImage(BuildContext context) {
     return Positioned(
-      top: -40.0,
       child: Container(
         height: MediaQuery.of(context).size.height / 2.5,
         width: MediaQuery.of(context).size.width,
-        decoration: BoxDecoration(
-          color: Theme.of(context).canvasColor,
-        ),
-        child: CachedNetworkImage(
-          imageUrl: critter.imageUri,
-          // fit: BoxFit.contain,
-          fit: BoxFit.fitWidth,
-          alignment: Alignment.center,
-          // height: MediaQuery.of(context).size.height,
+        child: Container(
+          // padding: EdgeInsets.all(16.0),
+          child: CachedNetworkImage(
+            imageUrl: critter.imageUri,
+            // fit: BoxFit.contain,
+            fit: BoxFit.fitWidth,
+            alignment: Alignment.center,
+            // height: MediaQuery.of(context).size.height,
+          ),
         ),
       ),
     );
@@ -67,6 +66,16 @@ class CritterHeaderWidget extends StatelessWidget {
         height: MediaQuery.of(context).size.height / 2.5,
         child: Stack(
           children: <Widget>[
+            Positioned(
+              top: -30.0,
+              child: Container(
+                height: MediaQuery.of(context).size.height / 2.5,
+                width: MediaQuery.of(context).size.width,
+                decoration: BoxDecoration(
+                  color: Theme.of(context).canvasColor,
+                ),
+              ),
+            ),
             topImage(context),
             iconImage(context),
             CritterCheckButton(
