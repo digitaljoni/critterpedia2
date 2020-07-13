@@ -19,11 +19,20 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'en';
 
-  static m0(name) => "Hello, ${name}";
+  static m0(hemisphere) => "Availability (${hemisphere})";
+
+  static m1(price) => "${price} Bells";
+
+  static m2(place) => "Price (${place})";
+
+  static m3(name) => "Hello, ${name}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
     "appTitle" : MessageLookupByLibrary.simpleMessage("Critterpedia"),
+    "availabilityHoursTitle" : MessageLookupByLibrary.simpleMessage("Hours"),
+    "availabilityMonthsTitle" : MessageLookupByLibrary.simpleMessage("Months"),
+    "availabilityTitle" : m0,
     "confirm" : MessageLookupByLibrary.simpleMessage("Confirm"),
     "currentHour" : MessageLookupByLibrary.simpleMessage("Current Hour"),
     "currentMonth" : MessageLookupByLibrary.simpleMessage("Current Month"),
@@ -33,17 +42,24 @@ class MessageLookup extends MessageLookupByLibrary {
     "insects" : MessageLookupByLibrary.simpleMessage("Insects"),
     "location" : MessageLookupByLibrary.simpleMessage("Location"),
     "locationTab" : MessageLookupByLibrary.simpleMessage("Location Tab"),
+    "locationTitle" : MessageLookupByLibrary.simpleMessage("Location"),
     "main" : MessageLookupByLibrary.simpleMessage("Main"),
     "mainTab" : MessageLookupByLibrary.simpleMessage("Main Tab"),
     "north" : MessageLookupByLibrary.simpleMessage("North"),
+    "pageNotFound" : MessageLookupByLibrary.simpleMessage("Page Not Found"),
+    "priceInBells" : m1,
+    "priceTitle" : m2,
     "profile" : MessageLookupByLibrary.simpleMessage("Profile"),
-    "profileGreetings" : m0,
+    "profileGreetings" : m3,
     "seaCreatures" : MessageLookupByLibrary.simpleMessage("Sea Creatures"),
     "settings" : MessageLookupByLibrary.simpleMessage("Settings"),
     "settingsDarkMode" : MessageLookupByLibrary.simpleMessage("Dark Mode"),
     "settingsEnvironment" : MessageLookupByLibrary.simpleMessage("Environment"),
     "settingsLanguage" : MessageLookupByLibrary.simpleMessage("Language"),
+    "shadowTitle" : MessageLookupByLibrary.simpleMessage("Shadow Size"),
+    "shop" : MessageLookupByLibrary.simpleMessage("Shop"),
     "south" : MessageLookupByLibrary.simpleMessage("South"),
+    "speedTitle" : MessageLookupByLibrary.simpleMessage("Speed"),
     "unknown" : MessageLookupByLibrary.simpleMessage("Unknown")
   };
 }

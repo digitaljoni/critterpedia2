@@ -43,6 +43,36 @@ class S {
     );
   }
 
+  /// `Hours`
+  String get availabilityHoursTitle {
+    return Intl.message(
+      'Hours',
+      name: 'availabilityHoursTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Months`
+  String get availabilityMonthsTitle {
+    return Intl.message(
+      'Months',
+      name: 'availabilityMonthsTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Availability ({hemisphere})`
+  String availabilityTitle(Object hemisphere) {
+    return Intl.message(
+      'Availability ($hemisphere)',
+      name: 'availabilityTitle',
+      desc: '',
+      args: [hemisphere],
+    );
+  }
+
   /// `Confirm`
   String get confirm {
     return Intl.message(
@@ -133,6 +163,16 @@ class S {
     );
   }
 
+  /// `Location`
+  String get locationTitle {
+    return Intl.message(
+      'Location',
+      name: 'locationTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Main`
   String get main {
     return Intl.message(
@@ -160,6 +200,36 @@ class S {
       name: 'north',
       desc: '',
       args: [],
+    );
+  }
+
+  /// `Page Not Found`
+  String get pageNotFound {
+    return Intl.message(
+      'Page Not Found',
+      name: 'pageNotFound',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `{price} Bells`
+  String priceInBells(Object price) {
+    return Intl.message(
+      '$price Bells',
+      name: 'priceInBells',
+      desc: '',
+      args: [price],
+    );
+  }
+
+  /// `Price ({place})`
+  String priceTitle(Object place) {
+    return Intl.message(
+      'Price ($place)',
+      name: 'priceTitle',
+      desc: '',
+      args: [place],
     );
   }
 
@@ -233,11 +303,41 @@ class S {
     );
   }
 
+  /// `Shadow Size`
+  String get shadowTitle {
+    return Intl.message(
+      'Shadow Size',
+      name: 'shadowTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Shop`
+  String get shop {
+    return Intl.message(
+      'Shop',
+      name: 'shop',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `South`
   String get south {
     return Intl.message(
       'South',
       name: 'south',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Speed`
+  String get speedTitle {
+    return Intl.message(
+      'Speed',
+      name: 'speedTitle',
       desc: '',
       args: [],
     );

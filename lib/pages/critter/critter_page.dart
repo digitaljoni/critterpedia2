@@ -4,8 +4,8 @@ import 'package:critterpedia/pages/critter/critter_page_view_model.dart';
 import 'package:critterpedia/pages/critter/widgets/critter_availability_widget.dart';
 import 'package:critterpedia/pages/critter/widgets/critter_header_widget.dart';
 import 'package:critterpedia/pages/critter/widgets/critter_phrases_widget.dart';
-import 'package:critterpedia/pages/critter/widgets/critter_price_location_widget.dart';
-import 'package:critterpedia/pages/critter/widgets/critter_shadow_widget.dart';
+import 'package:critterpedia/pages/critter/widgets/critter_location_row_widget.dart';
+import 'package:critterpedia/pages/critter/widgets/critter_price_row_widget.dart';
 import 'package:critterpedia/pages/critter/widgets/critter_title_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -40,10 +40,10 @@ class CritterPage extends StatelessWidget {
               CritterAvailabilityWidget(
                 _critter,
               ),
-              CritterPriceLocationWidget(
+              CritterLocationRowWidget(
                 critter: _critter,
               ),
-              CritterShadowWidget(critter: _critter),
+              CritterPriceRowWidget(critter: _critter),
               CritterPhrasesWidget(
                 catchPhrases: _critter.catchPhrase,
                 museumPhrases: _critter.museumPhrase,

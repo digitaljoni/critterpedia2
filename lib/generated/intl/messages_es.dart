@@ -19,7 +19,7 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'es';
 
-  static m0(name) => "Hola, ${name}";
+  static m3(name) => "Hola, ${name}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
@@ -30,7 +30,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "main" : MessageLookupByLibrary.simpleMessage("Main"),
     "mainTab" : MessageLookupByLibrary.simpleMessage("Main Tab"),
     "profile" : MessageLookupByLibrary.simpleMessage("Perfil"),
-    "profileGreetings" : m0,
+    "profileGreetings" : m3,
     "settings" : MessageLookupByLibrary.simpleMessage("Ajustes"),
     "settingsDarkMode" : MessageLookupByLibrary.simpleMessage("Modo Oscuro"),
     "settingsEnvironment" : MessageLookupByLibrary.simpleMessage("Environment"),

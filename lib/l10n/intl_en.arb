@@ -1,5 +1,8 @@
 {
     "appTitle": "Critterpedia",
+    "availabilityHoursTitle": "Hours",
+    "availabilityMonthsTitle": "Months",
+    "availabilityTitle": "Availability ({hemisphere})",
     "confirm": "Confirm",
     "currentHour": "Current Hour",
     "currentMonth": "Current Month",
@@ -9,9 +12,13 @@
     "insects": "Insects",
     "location": "Location",
     "locationTab": "Location Tab",
+    "locationTitle": "Location",
     "main": "Main",
     "mainTab": "Main Tab",
     "north": "North",
+    "pageNotFound": "Page Not Found",
+    "priceInBells": "{price} Bells",
+    "priceTitle": "Price ({place})",
     "profile": "Profile",
     "profileGreetings": "Hello, {name}",
     "seaCreatures": "Sea Creatures",
@@ -19,6 +26,9 @@
     "settingsDarkMode": "Dark Mode",
     "settingsEnvironment": "Environment",
     "settingsLanguage": "Language",
+    "shadowTitle": "Shadow Size",
+    "shop": "Shop",
     "south": "South",
+    "speedTitle": "Speed",
     "unknown": "Unknown"
 }
