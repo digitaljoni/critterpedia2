@@ -45,7 +45,7 @@ class CrittersWidget extends StatelessWidget {
 
     if (critters is Fishes) {
       iconData = CritterIcons.fish;
-      routePath = '/fishs/';
+      routePath = '/fish/';
     } else if (critters is SeaCreatures) {
       iconData = CritterIcons.sea;
       routePath = '/sea/';
