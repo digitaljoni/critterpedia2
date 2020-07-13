@@ -15,7 +15,7 @@ final ThemeData customTheme = ThemeData.dark().copyWith(
   ),
   scaffoldBackgroundColor: backgroundColor,
   canvasColor: navigationColor,
-  cardColor: Colors.white12,
+  cardColor: Color(0xFF425864),
   cardTheme: CardTheme(
     color: Colors.white24,
     elevation: 0.0,

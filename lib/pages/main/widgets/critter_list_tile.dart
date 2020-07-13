@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:critterpedia/models/catalog/catalog_view_model.dart';
 import 'package:critterpedia/models/critter/critter.dart';
 import 'package:critterpedia/models/filter/filter_view_model.dart';
 import 'package:flutter/material.dart';
@@ -8,20 +9,28 @@ import 'package:critterpedia/utils/extensions/string_extensions.dart';
 class CritterListTile extends StatelessWidget {
   const CritterListTile({
     @required this.iconData,
-    @required this.onTap,
     @required this.critter,
+    @required this.onTap,
+    @required this.onToggle,
     Key key,
   }) : super(key: key);
 
   final IconData iconData;
-  final Function onTap;
+
   final Critter critter;
+  final Function onTap;
+  final Function onToggle;
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<FilterViewModel>(
-      builder: (context, filterViewModel, _) {
+    return Consumer2<FilterViewModel, CatalogViewModel>(
+      builder: (context, filterViewModel, catalogViewModel, _) {
         final filter = filterViewModel.filter;
+        final catalog = catalogViewModel.catalog;
+
+        final buttonColor = catalog.hasCaught(critter.fileName)
+            ? Theme.of(context).accentColor
+            : Colors.black26;
 
         final month =
             filter.isCurrentMonth ? filterViewModel.currentMonth : null;
@@ -66,19 +75,32 @@ class CritterListTile extends StatelessWidget {
                       Radius.circular(8.0),
                     ),
                   ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                  child: Row(
                     children: <Widget>[
-                      Text(
-                        '${critter.name}'.titleCase,
-                        style: Theme.of(context).textTheme.subtitle1,
-                      ),
-                      Text(
-                        '${filter.isNorth ? critter.getMonthAvailableNorth : critter.getMonthAvailableSouth}'
-                            .titleCase,
-                        style: Theme.of(context).textTheme.bodyText1.copyWith(
-                              color: Colors.white38,
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Text(
+                              '${critter.name}'.titleCase,
+                              style: Theme.of(context).textTheme.subtitle1,
                             ),
+                            Text(
+                              '${filter.isNorth ? critter.getMonthAvailableNorth : critter.getMonthAvailableSouth}'
+                                  .titleCase,
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyText1
+                                  .copyWith(
+                                    color: Colors.white38,
+                                  ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      IconButton(
+                        onPressed: onToggle,
+                        icon: Icon(Icons.check, color: buttonColor),
                       ),
                     ],
                   ),

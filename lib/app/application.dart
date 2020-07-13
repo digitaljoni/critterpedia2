@@ -1,9 +1,11 @@
 import 'package:critterpedia/app/flavor.dart';
 import 'package:critterpedia/app/routes.dart';
 import 'package:critterpedia/config/styles/custom_theme.dart';
+import 'package:critterpedia/data/data_providers/catalog_local_data_provider.dart';
 import 'package:critterpedia/data/data_providers/critters_local_data_provider.dart';
 import 'package:critterpedia/data/data_providers/critters_remote_data_provider.dart';
 import 'package:critterpedia/data/repositories/app_state_repository.dart';
+import 'package:critterpedia/data/repositories/catalog_repository.dart';
 import 'package:critterpedia/data/repositories/critters_repository.dart';
 import 'package:critterpedia/services/app_state_local.dart';
 import 'package:critterpedia/services/http_service.dart';
@@ -27,6 +29,7 @@ class Application {
 
   AppStateRepository appStateRepository;
   CrittersRepository crittersRepository;
+  CatalogRepository catalogRepository;
 
   Future<void> init() async {
     _initTheme();
@@ -88,6 +91,10 @@ class Application {
     crittersRepository = CrittersRepository(
       remoteDataProvider: CrittersRemoteDataProvider(_clientService),
       localDataProvider: CrittersLocalDataProvider(_prefs),
+    );
+
+    catalogRepository = CatalogRepository(
+      localDataProvider: CatalogLocalDataProvider(_prefs),
     );
   }
 }

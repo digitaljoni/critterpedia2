@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 class InsectsViewModel extends ChangeNotifier {
   InsectsViewModel({this.repository});
 
-  CrittersRepository repository;
+  final CrittersRepository repository;
 
   Insects _insects;
 

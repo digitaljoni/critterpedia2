@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:critterpedia/app/app_view_model.dart';
 import 'package:critterpedia/app/application.dart';
 import 'package:critterpedia/generated/l10n.dart';
+import 'package:critterpedia/models/catalog/catalog_view_model.dart';
 import 'package:critterpedia/models/filter/filter_view_model.dart';
 import 'package:critterpedia/models/fish/fishes_view_model.dart';
 import 'package:critterpedia/models/insect/insects_view_model.dart';
@@ -34,6 +35,12 @@ class _AppState extends State<App> {
 
   FilterViewModel _filterViewModel;
 
+  CatalogViewModel _catalogViewModel;
+
+  Future<void> _fetchCatalog() async {
+    await _catalogViewModel.getCatalog();
+  }
+
   @override
   void initState() {
     super.initState();
@@ -53,6 +60,11 @@ class _AppState extends State<App> {
         SeaCreaturesViewModel(repository: _application.crittersRepository);
 
     _filterViewModel = FilterViewModel();
+
+    _catalogViewModel =
+        CatalogViewModel(repository: _application.catalogRepository);
+
+    _fetchCatalog();
   }
 
   @override
@@ -62,6 +74,8 @@ class _AppState extends State<App> {
         Provider<Application>.value(value: _application),
         ChangeNotifierProvider<AppViewModel>.value(value: _appViewModel),
         ChangeNotifierProvider<FilterViewModel>.value(value: _filterViewModel),
+        ChangeNotifierProvider<CatalogViewModel>.value(
+            value: _catalogViewModel),
         ChangeNotifierProvider<FishesViewModel>.value(value: _fishesViewModel),
         ChangeNotifierProvider<InsectsViewModel>.value(
             value: _insectsViewModel),

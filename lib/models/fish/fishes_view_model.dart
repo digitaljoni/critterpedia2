@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 class FishesViewModel extends ChangeNotifier {
   FishesViewModel({this.repository});
 
-  CrittersRepository repository;
+  final CrittersRepository repository;
 
   Fishes _fishes;
 

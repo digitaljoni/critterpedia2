@@ -1,5 +1,6 @@
 import 'package:critterpedia/app/application.dart';
 import 'package:critterpedia/common_widgets/critter_icons_icons.dart';
+import 'package:critterpedia/models/catalog/catalog_view_model.dart';
 import 'package:critterpedia/models/critter/critter.dart';
 import 'package:critterpedia/models/filter/filter_view_model.dart';
 import 'package:critterpedia/models/fish/fish.dart';
@@ -17,6 +18,15 @@ class CrittersWidget extends StatelessWidget {
   const CrittersWidget(this.critters, {Key key}) : super(key: key);
 
   final Critters critters;
+
+  void _onToggleHandler(BuildContext context, String fileName) {
+    final catalogViewModel =
+        Provider.of<CatalogViewModel>(context, listen: false);
+
+    catalogViewModel.toggleCaught(fileName);
+
+    Log.info('longPress: $fileName');
+  }
 
   void _onTapHandler(BuildContext context, String routePath) {
     final application = Provider.of<Application>(context, listen: false);
@@ -53,11 +63,13 @@ class CrittersWidget extends StatelessWidget {
                 critter: critter,
                 iconData: iconData,
                 onTap: () => _onTapHandler(context, critterRoute),
+                onToggle: () => _onToggleHandler(context, critter.fileName),
               )
             : CritterListTile(
                 critter: critter,
                 iconData: iconData,
                 onTap: () => _onTapHandler(context, critterRoute),
+                onToggle: () => _onToggleHandler(context, critter.fileName),
               );
       },
     ).toList();

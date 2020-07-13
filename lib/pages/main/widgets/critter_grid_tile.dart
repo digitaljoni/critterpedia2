@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:critterpedia/models/catalog/catalog_view_model.dart';
 import 'package:critterpedia/models/critter/critter.dart';
 import 'package:critterpedia/models/filter/filter_view_model.dart';
 import 'package:flutter/material.dart';
@@ -7,20 +8,23 @@ import 'package:provider/provider.dart';
 class CritterGridTile extends StatelessWidget {
   const CritterGridTile({
     @required this.iconData,
-    @required this.onTap,
     @required this.critter,
+    @required this.onTap,
+    @required this.onToggle,
     Key key,
   }) : super(key: key);
 
   final IconData iconData;
-  final Function onTap;
   final Critter critter;
+  final Function onTap;
+  final Function onToggle;
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<FilterViewModel>(
-      builder: (context, filterViewModel, _) {
+    return Consumer2<FilterViewModel, CatalogViewModel>(
+      builder: (context, filterViewModel, catalogViewModel, _) {
         final filter = filterViewModel.filter;
+        final catalog = catalogViewModel.catalog;
 
         final month =
             filter.isCurrentMonth ? filterViewModel.currentMonth : null;
@@ -28,10 +32,14 @@ class CritterGridTile extends StatelessWidget {
 
         final isAvailable = critter.isAvailable(filter.hemisphere, month, hour);
 
+        final buttonColor = catalog.hasCaught(critter.fileName)
+            ? Theme.of(context).accentColor
+            : Theme.of(context).cardColor;
         // final isHidden =
         return GridTile(
           child: GestureDetector(
             onTap: onTap,
+            onLongPress: onToggle,
             child: Container(
               margin: EdgeInsets.symmetric(
                 horizontal: 8.0,
@@ -39,7 +47,7 @@ class CritterGridTile extends StatelessWidget {
               ),
               padding: EdgeInsets.all(8.0),
               decoration: BoxDecoration(
-                color: Colors.white10,
+                color: buttonColor,
                 borderRadius: BorderRadius.all(
                   Radius.circular(8.0),
                 ),
