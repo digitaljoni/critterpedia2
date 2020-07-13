@@ -12,7 +12,7 @@ class Names {
     this.it,
     this.nl,
     this.zh,
-    this.jp,
+    this.ja,
     this.ko,
     this.ru,
   );
@@ -43,11 +43,28 @@ class Names {
   final String zh;
 
   @JsonKey(name: 'name-JPja')
-  final String jp;
+  final String ja;
 
   @JsonKey(name: 'name-KRko')
   final String ko;
 
   @JsonKey(name: 'name-EUru')
   final String ru;
+
+  String getName(String language) {
+    final nameMap = <String, String>{
+      'en': en,
+      'de': de,
+      'es': es,
+      'fr': fr,
+      'it': it,
+      'nl': nl,
+      'zh': zh,
+      'ja': ja,
+      'ko': ko,
+      'ru': ru,
+    };
+
+    return nameMap[language];
+  }
 }

@@ -78,6 +78,10 @@ abstract class Critter {
     }).join(' & ');
   }
 
+  String getName(String language) {
+    return names.getName(language ?? 'en');
+  }
+
   bool isAvailable(
     Hemisphere hemisphere,
     int month,

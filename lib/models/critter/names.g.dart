@@ -29,7 +29,7 @@ Map<String, dynamic> _$NamesToJson(Names instance) => <String, dynamic>{
       'name-EUit': instance.it,
       'name-EUnl': instance.nl,
       'name-CNzh': instance.zh,
-      'name-JPja': instance.jp,
+      'name-JPja': instance.ja,
       'name-KRko': instance.ko,
       'name-EUru': instance.ru,
     };

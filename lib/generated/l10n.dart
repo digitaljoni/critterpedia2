@@ -323,6 +323,16 @@ class S {
     );
   }
 
+  /// `Show Names In`
+  String get showNamesIn {
+    return Intl.message(
+      'Show Names In',
+      name: 'showNamesIn',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `South`
   String get south {
     return Intl.message(

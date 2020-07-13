@@ -1,10 +1,13 @@
 import 'package:critterpedia/generated/l10n.dart';
 
 import 'package:critterpedia/models/filter/filter_view_model.dart';
+import 'package:critterpedia/utils/constants/available_languages.dart';
+import 'package:critterpedia/utils/languages/languages.dart';
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:critterpedia/utils/extensions/string_extensions.dart';
 
 class MainDrawer extends StatelessWidget {
   const MainDrawer({
@@ -99,17 +102,24 @@ class MainDrawer extends StatelessWidget {
                   )
                 : null,
           ),
-          DrawerTitle(S.of(context).settingsLanguage),
+          DrawerTitle(S.of(context).showNamesIn),
           Column(
-            children: <Widget>[
-              DrawerTile(
-                titleText: 'English',
-                trailing: Icon(
-                  Icons.check,
-                  color: Theme.of(context).accentColor,
-                ),
-              ),
-            ],
+            children: availableLanguages
+                .map(
+                  (String language) => DrawerTile(
+                    onTap: () {
+                      filterViewModel.changeLanguage(language);
+                    },
+                    titleText: Languages.getDisplayLanguage(language).titleCase,
+                    trailing: filter.isCurrentLanguage(language)
+                        ? Icon(
+                            Icons.check,
+                            color: Theme.of(context).accentColor,
+                          )
+                        : null,
+                  ),
+                )
+                .toList(),
           ),
           AboutApp()
         ],

@@ -33,17 +33,10 @@ class CritterPage extends StatelessWidget {
           child: Column(
             children: <Widget>[
               CritterHeaderWidget(_critter),
-              CritterTitleWidget(
-                title: _critter.name ?? '',
-                rarity: _critter.rarity ?? '',
-              ),
-              CritterAvailabilityWidget(
-                _critter,
-              ),
-              CritterLocationRowWidget(
-                critter: _critter,
-              ),
-              CritterPriceRowWidget(critter: _critter),
+              CritterTitleWidget(_critter),
+              CritterAvailabilityWidget(_critter),
+              CritterLocationRowWidget(_critter),
+              CritterPriceRowWidget(_critter),
               CritterPhrasesWidget(
                 catchPhrases: _critter.catchPhrase,
                 museumPhrases: _critter.museumPhrase,

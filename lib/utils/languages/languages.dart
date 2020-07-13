@@ -118,7 +118,7 @@ class Languages {
     },
     'zh': {
       'name': 'Chinese',
-      'nativeName': '中文 (Zhōngwén), 汉语, 漢語',
+      'nativeName': '中文',
     },
     'cv': {
       'name': 'Chuvash',
@@ -154,7 +154,7 @@ class Languages {
     },
     'nl': {
       'name': 'Dutch',
-      'nativeName': 'Nederlands, Vlaams',
+      'nativeName': 'Nederlands',
     },
     'en': {
       'name': 'English',
@@ -186,7 +186,7 @@ class Languages {
     },
     'fr': {
       'name': 'French',
-      'nativeName': 'français, langue française',
+      'nativeName': 'Français',
     },
     'ff': {
       'name': 'Fula; Fulah; Pulaar; Pular',
@@ -286,7 +286,7 @@ class Languages {
     },
     'ja': {
       'name': 'Japanese',
-      'nativeName': '日本語 (にほんご／にっぽんご)',
+      'nativeName': '日本語',
     },
     'jv': {
       'name': 'Javanese',
@@ -338,7 +338,7 @@ class Languages {
     },
     'ko': {
       'name': 'Korean',
-      'nativeName': '한국어 (韓國語), 조선말 (朝鮮語)',
+      'nativeName': '한국어',
     },
     'ku': {
       'name': 'Kurdish',

@@ -6,7 +6,7 @@ import 'package:critterpedia/pages/critter/widgets/section_widget.dart';
 import 'package:flutter/material.dart';
 
 class CritterLocationRowWidget extends StatelessWidget {
-  CritterLocationRowWidget({this.critter});
+  CritterLocationRowWidget(this.critter);
 
   final Critter critter;
 

@@ -86,7 +86,7 @@ class CritterListTile extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
                             Text(
-                              '${critter.name}'.titleCase,
+                              '${critter.getName(filter.language)}'.titleCase,
                               style: Theme.of(context).textTheme.subtitle1,
                             ),
                             Text(

@@ -5,7 +5,6 @@ import 'package:fluro/fluro.dart';
 class Routes {
   static var routeHandlers = <String, Handler>{
     MainPage.routeName: MainPage.routeHandler,
-    LoginPage.routeName: LoginPage.routeHandler,
     FishPage.routeName: FishPage.routeHandler,
     SeaCreaturePage.routeName: SeaCreaturePage.routeHandler,
     InsectPage.routeName: InsectPage.routeHandler,

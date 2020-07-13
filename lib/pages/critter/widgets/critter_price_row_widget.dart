@@ -6,7 +6,7 @@ import 'package:critterpedia/pages/critter/widgets/section_widget.dart';
 import 'package:flutter/material.dart';
 
 class CritterPriceRowWidget extends StatelessWidget {
-  CritterPriceRowWidget({this.critter});
+  CritterPriceRowWidget(this.critter);
 
   final Critter critter;
 

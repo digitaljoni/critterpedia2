@@ -58,6 +58,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "settingsLanguage" : MessageLookupByLibrary.simpleMessage("Language"),
     "shadowTitle" : MessageLookupByLibrary.simpleMessage("Shadow Size"),
     "shop" : MessageLookupByLibrary.simpleMessage("Shop"),
+    "showNamesIn" : MessageLookupByLibrary.simpleMessage("Show Names In"),
     "south" : MessageLookupByLibrary.simpleMessage("South"),
     "speedTitle" : MessageLookupByLibrary.simpleMessage("Speed"),
     "unknown" : MessageLookupByLibrary.simpleMessage("Unknown")

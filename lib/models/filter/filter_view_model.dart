@@ -36,6 +36,7 @@ class FilterViewModel extends ChangeNotifier {
       hemisphere: Hemisphere.north,
       isCurrentMonth: true,
       isCurrentHour: true,
+      language: 'en',
     );
 
     notifyListeners();
@@ -68,6 +69,11 @@ class FilterViewModel extends ChangeNotifier {
 
   void settHour(int hour) {
     _filter = _filter.copyWith(month: hour);
+    notifyListeners();
+  }
+
+  void changeLanguage(String language) {
+    _filter = _filter.copyWith(language: language);
     notifyListeners();
   }
 
