@@ -19,6 +19,7 @@ dependencies:
   cached_network_image: ^2.2.0+1
   intl: ^0.16.1
   flutter_launcher_icons: ^0.7.5
+  url_launcher: ^5.5.0
 dev_dependencies:
   test: ^1.14.0
   json_serializable: ^3.3.0

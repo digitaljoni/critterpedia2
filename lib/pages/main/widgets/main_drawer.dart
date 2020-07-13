@@ -4,6 +4,7 @@ import 'package:critterpedia/models/filter/filter_view_model.dart';
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class MainDrawer extends StatelessWidget {
   const MainDrawer({
@@ -110,22 +111,83 @@ class MainDrawer extends StatelessWidget {
               ),
             ],
           ),
-          // ListTile(
-          //   title: Text(S.of(context).profile),
-          //   onTap: () {
-          //     Navigator.pop(context);
-          //     router.navigateTo(context, '/profile/4567');
-          //   },
-          // ),
-          // ListTile(
-          //   title: Text(S.of(context).settings),
-          //   onTap: () {
-          //     Navigator.pop(context);
-          //     router.navigateTo(context, '/settings');
-          //   },
-          // ),
+          AboutApp()
         ],
       ),
+    );
+  }
+}
+
+class AboutApp extends StatelessWidget {
+  const AboutApp({
+    Key key,
+  }) : super(key: key);
+
+  void _launchProjectPage() async {
+    const url = 'https://digitaljoni.com/projects/critterpedia/';
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        _launchProjectPage();
+      },
+      child: Container(
+          margin: EdgeInsets.symmetric(
+            vertical: 16.0,
+          ),
+          child: Row(
+            children: <Widget>[
+              Container(
+                decoration: BoxDecoration(
+                  color: Colors.black26,
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(
+                      16.0,
+                    ),
+                  ),
+                ),
+                width: 80.0,
+                height: 80.0,
+                padding: EdgeInsets.all(8.0),
+                margin: EdgeInsets.all(8.0),
+                child: Image.asset('assets/images/app_icon.png'),
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text(
+                    'Critterpedia v.1.0',
+                    style: Theme.of(context).textTheme.headline6,
+                  ),
+                  Text(
+                    'Built by digitaljoni.com',
+                    style: Theme.of(context).textTheme.subtitle2.copyWith(
+                          color: Colors.white60,
+                        ),
+                  ),
+                  Text(
+                    'Built using Flutter/Dart',
+                    style: Theme.of(context).textTheme.subtitle2.copyWith(
+                          color: Colors.white60,
+                        ),
+                  ),
+                  Text(
+                    'Data by ACNH Api',
+                    style: Theme.of(context).textTheme.subtitle2.copyWith(
+                          color: Colors.white60,
+                        ),
+                  ),
+                ],
+              ),
+            ],
+          )),
     );
   }
 }
