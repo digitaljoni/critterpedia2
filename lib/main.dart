@@ -8,5 +8,5 @@ class Development extends Flavor {
   EnvType envType = EnvType.DEVELOPMENT;
 
   @override
-  String baseUrl = 'http://acnhapi.com/v1/';
+  String baseUrl = 'https://acnhapi.com/v1/';
 }
