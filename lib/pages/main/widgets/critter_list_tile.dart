@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:critterpedia/common_widgets/check_circle_widget.dart';
 import 'package:critterpedia/models/catalog/catalog_view_model.dart';
 import 'package:critterpedia/models/critter/critter.dart';
 import 'package:critterpedia/models/filter/filter_view_model.dart';
@@ -31,6 +32,9 @@ class CritterListTile extends StatelessWidget {
         final buttonColor = catalog.hasCaught(critter.fileName)
             ? Theme.of(context).accentColor
             : Colors.black26;
+
+        final iconColor =
+            catalog.hasCaught(critter.fileName) ? Colors.white : Colors.black26;
 
         final month =
             filter.isCurrentMonth ? filterViewModel.currentMonth : null;
@@ -98,9 +102,10 @@ class CritterListTile extends StatelessWidget {
                           ],
                         ),
                       ),
-                      IconButton(
-                        onPressed: onToggle,
-                        icon: Icon(Icons.check, color: buttonColor),
+                      CheckCircleWidget(
+                        onToggle: onToggle,
+                        buttonColor: buttonColor,
+                        iconColor: iconColor,
                       ),
                     ],
                   ),

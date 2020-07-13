@@ -24,6 +24,7 @@ class CatalogViewModel extends ChangeNotifier {
 
   void toggleCaught(String fileName) {
     _catalog = _catalog.addRemoveCatch(fileName);
+    repository.saveCatalog(catalog);
     notifyListeners();
   }
 }
