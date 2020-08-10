@@ -36,11 +36,10 @@ flutter:
   assets:
     - assets/images/
   fonts:
-    -
-          family: CritterIcons
-          fonts:
-            -
-                  asset: fonts/critter_icons/CritterIcons.ttf
+    - family:  CritterIcons
+      fonts:
+        - asset: fonts/critter_icons/CritterIcons.ttf
+
 
 flutter_intl:
   enabled: true
