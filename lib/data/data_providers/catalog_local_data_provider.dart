@@ -11,7 +11,7 @@ class CatalogLocalDataProvider {
   final keyCatalog = 'CATALOG';
 
   Future<Catalog> getCatalog() async {
-    final data = await prefs.getString(keyCatalog);
+    final data = prefs.getString(keyCatalog);
 
     if (data == null || data == '') {
       return null;
@@ -19,7 +19,7 @@ class CatalogLocalDataProvider {
 
     final dynamic jsonData = json.decode(data);
     Log.info('Fetched catalog from local data provider');
-    return Catalog.fromJson(jsonData);
+    return Catalog.fromJson(jsonData as Map<String, dynamic>);
   }
 
   void saveCatalog(Catalog catalog) {

@@ -22,7 +22,7 @@ class CrittersRemoteDataProvider {
     }
 
     final dynamic jsonData = json.decode(data);
-    return Insects.fromJson(jsonData);
+    return Insects.fromJson(jsonData as Map<String, dynamic>);
   }
 
   Future<Fishes> getFishes() async {
@@ -33,7 +33,7 @@ class CrittersRemoteDataProvider {
     }
 
     final dynamic jsonData = json.decode(data);
-    return Fishes.fromJson(jsonData);
+    return Fishes.fromJson(jsonData as Map<String, dynamic>);
   }
 
   Future<SeaCreatures> getSeaCreatures() async {
@@ -44,6 +44,6 @@ class CrittersRemoteDataProvider {
     }
 
     final dynamic jsonData = json.decode(data);
-    return SeaCreatures.fromJson(jsonData);
+    return SeaCreatures.fromJson(jsonData as Map<String, dynamic>);
   }
 }

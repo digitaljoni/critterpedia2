@@ -1,6 +1,7 @@
-include: package:pedantic/analysis_options.yaml
+include: package:lint/analysis_options.yaml
 
 analyzer:
   exclude: 
     - lib/generated/intl/*.dart
     - lib/generated/**/*.dart
+    - lib/common_widgets/*icons.dart

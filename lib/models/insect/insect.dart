@@ -12,7 +12,7 @@ class Insects extends Critters<Insect> {
     final allMap = json.map(
       (String k, dynamic v) => MapEntry(
         k,
-        Insect.fromJson(v),
+        Insect.fromJson(v as Map<String, dynamic>),
       ),
     );
 

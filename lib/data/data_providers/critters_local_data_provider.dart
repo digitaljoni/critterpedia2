@@ -15,7 +15,7 @@ class CrittersLocalDataProvider {
   final keySeaCreatures = 'SEACREATURES';
 
   Future<Insects> getInsects() async {
-    final data = await prefs.getString(keyInsects);
+    final data = prefs.getString(keyInsects);
 
     if (data == null || data == '') {
       return null;
@@ -23,11 +23,12 @@ class CrittersLocalDataProvider {
 
     final dynamic jsonData = json.decode(data);
     Log.info('Fetched insects from local data provider');
-    return Insects.fromJson(jsonData);
+    final Insects insects = Insects.fromJson(jsonData as Map<String, dynamic>);
+    return Future.value(insects);
   }
 
   Future<Fishes> getFishes() async {
-    final data = await prefs.getString(keyFishes);
+    final data = prefs.getString(keyFishes);
 
     if (data == null || data == '') {
       return null;
@@ -35,12 +36,12 @@ class CrittersLocalDataProvider {
 
     final dynamic jsonData = json.decode(data);
     Log.info('Fetched fishes from local data provider');
-
-    return Fishes.fromJson(jsonData);
+    final Fishes fishes = Fishes.fromJson(jsonData as Map<String, dynamic>);
+    return Future.value(fishes);
   }
 
   Future<SeaCreatures> getSeaCreatures() async {
-    final data = await prefs.getString(keySeaCreatures);
+    final data = prefs.getString(keySeaCreatures);
 
     if (data == null || data == '') {
       return null;
@@ -48,7 +49,9 @@ class CrittersLocalDataProvider {
 
     final dynamic jsonData = json.decode(data);
     Log.info('Fetched seaCreatures from local data provider');
-    return SeaCreatures.fromJson(jsonData);
+    final SeaCreatures seaCreatures =
+        SeaCreatures.fromJson(jsonData as Map<String, dynamic>);
+    return Future.value(seaCreatures);
   }
 
   void saveFishes(Fishes fishes) {

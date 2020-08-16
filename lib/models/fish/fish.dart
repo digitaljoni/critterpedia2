@@ -12,7 +12,7 @@ class Fishes extends Critters<Fish> {
     final allMap = json.map(
       (String k, dynamic v) => MapEntry(
         k,
-        Fish.fromJson(v),
+        Fish.fromJson(v as Map<String, dynamic>),
       ),
     );
 
