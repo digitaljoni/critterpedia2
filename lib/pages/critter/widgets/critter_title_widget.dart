@@ -5,7 +5,7 @@ import 'package:critterpedia/utils/extensions/string_extensions.dart';
 import 'package:provider/provider.dart';
 
 class CritterTitleWidget extends StatelessWidget {
-  CritterTitleWidget(
+  const CritterTitleWidget(
     this.critter,
   );
 

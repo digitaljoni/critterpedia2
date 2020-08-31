@@ -2,7 +2,7 @@ import 'package:critterpedia/pages/critter/widgets/section_widget.dart';
 import 'package:flutter/material.dart';
 
 class CritterPhrasesWidget extends StatelessWidget {
-  CritterPhrasesWidget({
+  const CritterPhrasesWidget({
     @required this.catchPhrases,
     @required this.museumPhrases,
   });
@@ -15,14 +15,14 @@ class CritterPhrasesWidget extends StatelessWidget {
     return Column(
       children: <Widget>[
         Container(
-          margin: EdgeInsets.symmetric(
+          margin: const EdgeInsets.symmetric(
             horizontal: 32.0,
             vertical: 16.0,
           ),
           child: Text(
             '" $catchPhrases "',
             textAlign: TextAlign.center,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 24.0,
               color: Colors.white38,
               fontStyle: FontStyle.italic,

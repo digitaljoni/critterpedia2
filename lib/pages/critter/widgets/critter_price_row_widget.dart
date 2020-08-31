@@ -6,7 +6,7 @@ import 'package:critterpedia/pages/critter/widgets/section_widget.dart';
 import 'package:flutter/material.dart';
 
 class CritterPriceRowWidget extends StatelessWidget {
-  CritterPriceRowWidget(this.critter);
+  const CritterPriceRowWidget(this.critter);
 
   final Critter critter;
 
@@ -22,28 +22,24 @@ class CritterPriceRowWidget extends StatelessWidget {
             info: S.of(context).priceInBells('${critter.price}'),
           ),
         ),
-        (critter is Fish)
-            ? Expanded(
-                child: SectionTextWidget(
-                  title: S.of(context).priceTitle('CJ'),
-                  info: S
-                      .of(context)
-                      .priceInBells('${(critter as Fish).priceCj}'),
-                ),
-              )
-            : SizedBox(),
-        (critter is Insect)
-            ? Expanded(
-                child: SectionTextWidget(
-                  title: S.of(context).priceTitle(
-                        'Flick',
-                      ),
-                  info: S
-                      .of(context)
-                      .priceInBells('${(critter as Insect).priceFlick}'),
-                ),
-              )
-            : SizedBox(),
+        if (critter is Fish)
+          Expanded(
+            child: SectionTextWidget(
+              title: S.of(context).priceTitle('CJ'),
+              info: S.of(context).priceInBells('${(critter as Fish).priceCj}'),
+            ),
+          ),
+        if (critter is Insect)
+          Expanded(
+            child: SectionTextWidget(
+              title: S.of(context).priceTitle(
+                    'Flick',
+                  ),
+              info: S
+                  .of(context)
+                  .priceInBells('${(critter as Insect).priceFlick}'),
+            ),
+          ),
       ],
     );
   }

@@ -3,7 +3,7 @@ import 'package:critterpedia/pages/pages.dart';
 import 'package:fluro/fluro.dart';
 
 class Routes {
-  static var routeHandlers = <String, Handler>{
+  static Map<String, Handler> routeHandlers = <String, Handler>{
     MainPage.routeName: MainPage.routeHandler,
     FishPage.routeName: FishPage.routeHandler,
     SeaCreaturePage.routeName: SeaCreaturePage.routeHandler,
@@ -14,7 +14,7 @@ class Routes {
     const transitionType = TransitionType.inFromRight;
 
     router.notFoundHandler = Handler(handlerFunc: (context, params) {
-      return NotFoundPage();
+      return const NotFoundPage();
     });
 
     routeHandlers.forEach(

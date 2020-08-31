@@ -28,7 +28,7 @@ class _FishTabState extends State<FishTab> {
     final fishes = fishesViewModel.fishes;
 
     if (fishes == null) {
-      return LoadingWidget();
+      return const LoadingWidget();
     }
 
     return CrittersWidget(fishes);

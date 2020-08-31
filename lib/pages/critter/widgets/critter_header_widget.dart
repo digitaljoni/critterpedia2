@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class CritterHeaderWidget extends StatelessWidget {
-  CritterHeaderWidget(this.critter);
+  const CritterHeaderWidget(this.critter);
 
   final Critter critter;
   Widget topImage(BuildContext context) {
@@ -15,15 +15,12 @@ class CritterHeaderWidget extends StatelessWidget {
       child: Container(
         height: MediaQuery.of(context).size.height / 2.5,
         width: MediaQuery.of(context).size.width,
-        child: Container(
-          // padding: EdgeInsets.all(16.0),
-          child: CachedNetworkImage(
-            imageUrl: critter.imageUri,
-            // fit: BoxFit.contain,
-            fit: BoxFit.fitWidth,
-            alignment: Alignment.center,
-            // height: MediaQuery.of(context).size.height,
-          ),
+        child: CachedNetworkImage(
+          imageUrl: critter.imageUri,
+          // fit: BoxFit.contain,
+          fit: BoxFit.fitWidth,
+          alignment: Alignment.center,
+          // height: MediaQuery.of(context).size.height,
         ),
       ),
     );
@@ -37,9 +34,9 @@ class CritterHeaderWidget extends StatelessWidget {
           shape: BoxShape.circle,
           color: Theme.of(context).scaffoldBackgroundColor,
         ),
-        padding: EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(8.0),
         child: Container(
-          padding: EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(8.0),
           width: 80.0,
           height: 80.0,
           decoration: BoxDecoration(
@@ -81,7 +78,7 @@ class CritterHeaderWidget extends StatelessWidget {
             CritterCheckButton(
               critter: critter,
             ),
-            Positioned(
+            const Positioned(
               top: 36.0,
               left: 10.0,
               child: BackButton(
@@ -96,7 +93,7 @@ class CritterHeaderWidget extends StatelessWidget {
 class CritterCheckButton extends StatelessWidget {
   const CritterCheckButton({
     @required this.critter,
-    key,
+    Key key,
   }) : super(key: key);
 
   final Critter critter;

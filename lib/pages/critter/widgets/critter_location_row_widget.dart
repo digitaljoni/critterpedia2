@@ -6,7 +6,7 @@ import 'package:critterpedia/pages/critter/widgets/section_widget.dart';
 import 'package:flutter/material.dart';
 
 class CritterLocationRowWidget extends StatelessWidget {
-  CritterLocationRowWidget(this.critter);
+  const CritterLocationRowWidget(this.critter);
 
   final Critter critter;
 
@@ -26,21 +26,20 @@ class CritterLocationRowWidget extends StatelessWidget {
           child: (critter is SeaCreature)
               ? SectionTextWidget(
                   title: S.of(context).speedTitle,
-                  info: '${(critter as SeaCreature).speed}',
+                  info: (critter as SeaCreature).speed,
                 )
               : SectionTextWidget(
                   title: S.of(context).locationTitle,
-                  info: '${critter.location}',
+                  info: critter.location,
                 ),
         ),
-        (critter is Fish || critter is SeaCreature)
-            ? Expanded(
-                child: SectionTextWidget(
-                  title: S.of(context).shadowTitle,
-                  info: '$shadow',
-                ),
-              )
-            : SizedBox(),
+        if (critter is Fish || critter is SeaCreature)
+          Expanded(
+            child: SectionTextWidget(
+              title: S.of(context).shadowTitle,
+              info: shadow,
+            ),
+          ),
       ],
     );
   }

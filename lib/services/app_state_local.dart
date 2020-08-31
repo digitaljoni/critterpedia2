@@ -9,7 +9,7 @@ class AppStateLocal {
   final keyCurrentLocale = 'current_locale';
 
   Future<bool> fetchIsDarkMode() async {
-    return await prefs.getBool(keyIsDarkMode);
+    return prefs.getBool(keyIsDarkMode);
   }
 
   void saveIsDarkMode(bool value) {
@@ -17,7 +17,7 @@ class AppStateLocal {
   }
 
   Future<String> fetchCurrentLocale() async {
-    return await prefs.getString(keyCurrentLocale);
+    return prefs.getString(keyCurrentLocale);
   }
 
   void saveCurrentLocale(String value) {

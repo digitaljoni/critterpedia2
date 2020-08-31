@@ -33,7 +33,7 @@ class CrittersWidget extends StatelessWidget {
     final router = application.router;
 
     Log.info('navigateTo: $routePath');
-    router.navigateTo(context, '$routePath');
+    router.navigateTo(context, routePath);
   }
 
   @override

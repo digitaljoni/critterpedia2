@@ -27,7 +27,7 @@ class MainDrawer extends StatelessWidget {
       child: ListView(
         children: <Widget>[
           Container(
-            padding: EdgeInsets.only(
+            padding: const EdgeInsets.only(
               left: 16.0,
               top: 8.0,
             ),
@@ -40,7 +40,7 @@ class MainDrawer extends StatelessWidget {
                   ),
                 ),
                 IconButton(
-                  icon: Icon(Icons.clear),
+                  icon: const Icon(Icons.clear),
                   onPressed: () {
                     Navigator.pop(context);
                   },
@@ -121,7 +121,7 @@ class MainDrawer extends StatelessWidget {
                 )
                 .toList(),
           ),
-          AboutApp()
+          const AboutApp()
         ],
       ),
     );
@@ -133,7 +133,7 @@ class AboutApp extends StatelessWidget {
     Key key,
   }) : super(key: key);
 
-  void _launchProjectPage() async {
+  Future<void> _launchProjectPage() async {
     const url = 'https://digitaljoni.com/projects/critterpedia/';
     if (await canLaunch(url)) {
       await launch(url);
@@ -149,13 +149,13 @@ class AboutApp extends StatelessWidget {
         _launchProjectPage();
       },
       child: Container(
-          margin: EdgeInsets.symmetric(
+          margin: const EdgeInsets.symmetric(
             vertical: 16.0,
           ),
           child: Row(
             children: <Widget>[
               Container(
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: Colors.black26,
                   borderRadius: BorderRadius.all(
                     Radius.circular(
@@ -165,8 +165,8 @@ class AboutApp extends StatelessWidget {
                 ),
                 width: 80.0,
                 height: 80.0,
-                padding: EdgeInsets.all(8.0),
-                margin: EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(8.0),
+                margin: const EdgeInsets.all(8.0),
                 child: Image.asset('assets/images/app_icon.png'),
               ),
               Column(
@@ -213,11 +213,11 @@ class DrawerTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(16.0),
-      margin: EdgeInsets.only(
+      padding: const EdgeInsets.all(16.0),
+      margin: const EdgeInsets.only(
         top: 16.0,
       ),
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         border: Border(
           bottom: BorderSide(
             color: Colors.white24,
@@ -237,17 +237,17 @@ class DrawerTile extends StatelessWidget {
     this.titleText,
     this.trailing,
     this.onTap,
-    key,
+    Key key,
   }) : super(key: key);
 
   final String titleText;
   final Widget trailing;
-  final Function onTap;
+  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         color: Colors.white10,
         border: Border(
           bottom: BorderSide(

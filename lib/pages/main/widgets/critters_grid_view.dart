@@ -11,7 +11,7 @@ class CrittersGridView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GridView.count(
-      padding: EdgeInsets.symmetric(
+      padding: const EdgeInsets.symmetric(
         horizontal: 8.0,
         vertical: 8.0,
       ),

@@ -28,7 +28,7 @@ class _SeaCreaturesTabState extends State<SeaCreaturesTab> {
     final seaCreatures = seaCreaturesViewModel.seaCreatures;
 
     if (seaCreatures == null) {
-      return LoadingWidget();
+      return const LoadingWidget();
     }
 
     return CrittersWidget(seaCreatures);

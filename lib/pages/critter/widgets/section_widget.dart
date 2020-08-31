@@ -40,25 +40,24 @@ class SectionWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        title != null
-            ? Padding(
-                padding: EdgeInsets.only(
-                  bottom: 4.0,
-                ),
-                child: Text(
-                  title,
-                  style: Theme.of(context).textTheme.subtitle2,
-                ),
-              )
-            : SizedBox(),
+        if (title != null)
+          Padding(
+            padding: const EdgeInsets.only(
+              bottom: 4.0,
+            ),
+            child: Text(
+              title,
+              style: Theme.of(context).textTheme.subtitle2,
+            ),
+          ),
         Card(
-          margin: EdgeInsets.only(
+          margin: const EdgeInsets.only(
             left: 16.0,
             right: 16.0,
             bottom: 16.0,
           ),
           child: Container(
-            padding: EdgeInsets.all(
+            padding: const EdgeInsets.all(
               10.0,
             ),
             width: double.infinity,

@@ -7,10 +7,10 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class InsectPage extends StatelessWidget {
-  InsectPage({this.fileName, Key key}) : super(key: key);
+  const InsectPage({this.fileName, Key key}) : super(key: key);
 
   static const routeName = '/insect/:fileName';
-  static var routeHandler = Handler(
+  static Handler routeHandler = Handler(
       handlerFunc: (BuildContext context, Map<String, List<String>> params) {
     return InsectPage(fileName: params['fileName'][0]);
   });

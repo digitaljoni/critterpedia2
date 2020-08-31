@@ -14,12 +14,12 @@ import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 
 class MainPage extends StatefulWidget {
-  MainPage({Key key}) : super(key: key);
+  const MainPage({Key key}) : super(key: key);
 
   static const routeName = '/';
-  static var routeHandler = Handler(
+  static Handler routeHandler = Handler(
       handlerFunc: (BuildContext context, Map<String, List<String>> params) {
-    return MainPage();
+    return const MainPage();
   });
 
   @override
@@ -30,9 +30,9 @@ class _MainPageState extends State<MainPage> {
   int tabIndex;
 
   List<Widget> tabs = [
-    InsectsTab(),
-    FishTab(),
-    SeaCreaturesTab(),
+    const InsectsTab(),
+    const FishTab(),
+    const SeaCreaturesTab(),
   ];
 
   @override
@@ -46,7 +46,7 @@ class _MainPageState extends State<MainPage> {
     final appState = Provider.of<AppViewModel>(context).appState;
 
     if (!appState.isReady) {
-      return LoadingPage();
+      return const LoadingPage();
     }
 
     final application = Provider.of<Application>(context, listen: false);
@@ -58,12 +58,13 @@ class _MainPageState extends State<MainPage> {
       appBar: AppBar(
         title: Text(S.of(context).appTitle),
         centerTitle: true,
-        actions: <Widget>[
+        actions: const <Widget>[
           GridViewToggle(),
         ],
         bottom: PreferredSize(
+          preferredSize: const Size.fromHeight(24.0),
           child: Padding(
-            padding: EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(8.0),
             child: Consumer<FilterViewModel>(
               builder: (context, value, _) {
                 return Text(
@@ -74,7 +75,6 @@ class _MainPageState extends State<MainPage> {
               },
             ),
           ),
-          preferredSize: const Size.fromHeight(24.0),
         ),
       ),
       drawer: MainDrawer(router: router),
@@ -91,15 +91,15 @@ class _MainPageState extends State<MainPage> {
         },
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(CritterIcons.insect),
+            icon: const Icon(CritterIcons.insect),
             title: Text(S.of(context).insects),
           ),
           BottomNavigationBarItem(
-            icon: Icon(CritterIcons.fish),
+            icon: const Icon(CritterIcons.fish),
             title: Text(S.of(context).fish),
           ),
           BottomNavigationBarItem(
-            icon: Icon(CritterIcons.sea),
+            icon: const Icon(CritterIcons.sea),
             title: Text(S.of(context).seaCreatures),
           ),
         ],
@@ -118,8 +118,8 @@ class GridViewToggle extends StatelessWidget {
     final filterViewModel = Provider.of<FilterViewModel>(context);
     return IconButton(
       icon: filterViewModel.isGridView
-          ? Icon(Icons.view_list)
-          : Icon(
+          ? const Icon(Icons.view_list)
+          : const Icon(
               Icons.view_module,
             ),
       onPressed: () {

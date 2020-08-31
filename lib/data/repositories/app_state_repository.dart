@@ -6,7 +6,7 @@ class AppStateRepository {
   final AppStateLocal local;
 
   Future<bool> fetchIsDarkMode() async {
-    return await local.fetchIsDarkMode();
+    return local.fetchIsDarkMode();
   }
 
   void setIsDarkMode(bool value) {
@@ -14,7 +14,7 @@ class AppStateRepository {
   }
 
   Future<String> fetchCurrentLocale() async {
-    return await local.fetchCurrentLocale();
+    return local.fetchCurrentLocale();
   }
 
   void setCurrentLocale(String value) {

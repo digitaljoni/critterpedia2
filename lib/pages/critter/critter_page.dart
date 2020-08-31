@@ -21,7 +21,7 @@ class CritterPage extends StatelessWidget {
     final _critter = critterPageViewModel.critter;
 
     if (_critter == null) {
-      return Scaffold(
+      return const Scaffold(
         body: LoadingWidget(),
       );
     }

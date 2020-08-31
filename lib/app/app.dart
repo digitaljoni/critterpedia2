@@ -13,11 +13,12 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
 
 class App extends StatefulWidget {
-  App(this.application, {Key key}) : super(key: key);
+  const App(this.application, {Key key}) : super(key: key);
 
   final Application application;
 
   @override
+  // ignore: no_logic_in_create_state
   _AppState createState() => _AppState(application);
 }
 
@@ -82,13 +83,13 @@ class _AppState extends State<App> {
         ChangeNotifierProvider<SeaCreaturesViewModel>.value(
             value: _seaCreaturesViewModel),
       ],
-      child: _MaterialApp(),
+      child: const _MaterialApp(),
     );
   }
 }
 
 class _MaterialApp extends StatelessWidget {
-  _MaterialApp({
+  const _MaterialApp({
     Key key,
   }) : super(key: key);
 
@@ -100,7 +101,7 @@ class _MaterialApp extends StatelessWidget {
         final appState = appViewModel.appState;
         return MaterialApp(
           debugShowCheckedModeBanner: false,
-          localizationsDelegates: [
+          localizationsDelegates: const [
             S.delegate,
             GlobalMaterialLocalizations.delegate,
             GlobalWidgetsLocalizations.delegate,

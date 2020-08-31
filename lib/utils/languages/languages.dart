@@ -728,7 +728,7 @@ class Languages {
     'za': {'name': 'Zhuang, Chuang', 'nativeName': 'Saɯ cueŋƅ, Saw cuengh'}
   };
 
-  static String getDisplayLanguage(key) {
+  static String getDisplayLanguage(String key) {
     return isoLangs.containsKey(key) ? isoLangs[key]['nativeName'] : 'Unknown';
   }
 }

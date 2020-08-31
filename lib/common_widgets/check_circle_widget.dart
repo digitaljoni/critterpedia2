@@ -9,7 +9,7 @@ class CheckCircleWidget extends StatelessWidget {
     this.size,
   }) : super(key: key);
 
-  final Function onToggle;
+  final VoidCallback onToggle;
   final Color buttonColor;
   final Color iconColor;
   final double size;
@@ -19,7 +19,7 @@ class CheckCircleWidget extends StatelessWidget {
     return GestureDetector(
       onTap: onToggle,
       child: Padding(
-        padding: EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(8.0),
         child: SizedBox(
           width: size ?? 32.0,
           height: size ?? 32.0,

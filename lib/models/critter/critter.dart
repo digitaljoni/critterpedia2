@@ -26,6 +26,7 @@ abstract class Critter {
     this.iconUri,
   );
 
+  // ignore: avoid_unused_constructor_parameters
   factory Critter.fromJson(Map<String, dynamic> json) => null;
 
   final int id;
@@ -62,11 +63,11 @@ abstract class Critter {
   bool get isAllDay => availability?.isAllDay ?? false;
   bool get isAllYear => availability?.isAllYear ?? false;
 
-  String get getTimeAvailable => (isAllDay) ? 'All day' : timeAvailable;
+  String get getTimeAvailable => isAllDay ? 'All day' : timeAvailable;
   String get getMonthAvailableNorth =>
-      (isAllYear) ? 'All year' : monthNumberToName(northernMonths);
+      isAllYear ? 'All year' : monthNumberToName(northernMonths);
   String get getMonthAvailableSouth =>
-      (isAllYear) ? 'All year' : monthNumberToName(southernMonths);
+      isAllYear ? 'All year' : monthNumberToName(southernMonths);
 
   String monthNumberToName(String monthRange) {
     final monthRangeList = monthRange.replaceAll(' ', '').split('&');

@@ -1,7 +1,18 @@
 include: package:lint/analysis_options.yaml
 
+linter:
+  rules:
+    avoid_positional_boolean_parameters: false
+    use_setters_to_change_properties: false
+    avoid_classes_with_only_static_members: false
+    overridden_fields: false
+    avoid_redundant_argument_values: false
+    constant_identifier_names: false
+    avoid_bool_literals_in_conditional_expressions: false
+
 analyzer:
   exclude: 
     - lib/generated/intl/*.dart
     - lib/generated/**/*.dart
     - lib/common_widgets/*icons.dart
+    - lib/generated/l10n.dart

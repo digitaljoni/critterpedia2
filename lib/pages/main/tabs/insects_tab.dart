@@ -28,7 +28,7 @@ class _InsectsTabState extends State<InsectsTab> {
     final insects = insectsViewModel.insects;
 
     if (insects == null) {
-      return LoadingWidget();
+      return const LoadingWidget();
     }
 
     return CrittersWidget(insects);

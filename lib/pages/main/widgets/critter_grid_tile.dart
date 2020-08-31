@@ -16,8 +16,8 @@ class CritterGridTile extends StatelessWidget {
 
   final IconData iconData;
   final Critter critter;
-  final Function onTap;
-  final Function onToggle;
+  final VoidCallback onTap;
+  final VoidCallback onToggle;
 
   @override
   Widget build(BuildContext context) {
@@ -41,14 +41,14 @@ class CritterGridTile extends StatelessWidget {
             onTap: onTap,
             onLongPress: onToggle,
             child: Container(
-              margin: EdgeInsets.symmetric(
+              margin: const EdgeInsets.symmetric(
                 horizontal: 8.0,
                 vertical: 8.0,
               ),
-              padding: EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(8.0),
               decoration: BoxDecoration(
                 color: buttonColor,
-                borderRadius: BorderRadius.all(
+                borderRadius: const BorderRadius.all(
                   Radius.circular(8.0),
                 ),
               ),
@@ -57,12 +57,10 @@ class CritterGridTile extends StatelessWidget {
                 child: Center(
                   child: CachedNetworkImage(
                     imageUrl: critter.iconUri,
-                    placeholder: (context, _) => Container(
-                      child: Icon(
-                        iconData, // CritterIcons.fish,
-                        size: 36.0,
-                        color: Colors.black12,
-                      ),
+                    placeholder: (context, _) => Icon(
+                      iconData, // CritterIcons.fish,
+                      size: 36.0,
+                      color: Colors.black12,
                     ),
                   ),
                 ),

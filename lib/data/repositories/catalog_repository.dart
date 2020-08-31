@@ -16,11 +16,10 @@ class CatalogRepository {
       return _catalog;
     }
 
-    _catalog = await localDataProvider.getCatalog();
-    return _catalog;
+    return _catalog = await localDataProvider.getCatalog();
   }
 
-  void saveCatalog(Catalog catalog) async {
+  Future<void> saveCatalog(Catalog catalog) async {
     _catalog = catalog;
 
     localDataProvider.saveCatalog(catalog);

@@ -19,8 +19,8 @@ class CritterListTile extends StatelessWidget {
   final IconData iconData;
 
   final Critter critter;
-  final Function onTap;
-  final Function onToggle;
+  final VoidCallback onTap;
+  final VoidCallback onToggle;
 
   @override
   Widget build(BuildContext context) {
@@ -55,12 +55,10 @@ class CritterListTile extends StatelessWidget {
                   child: Center(
                     child: CachedNetworkImage(
                       imageUrl: critter.iconUri,
-                      placeholder: (context, _) => Container(
-                        child: Icon(
-                          iconData, // CritterIcons.fish,
-                          size: 36.0,
-                          color: Colors.black12,
-                        ),
+                      placeholder: (context, _) => Icon(
+                        iconData, // CritterIcons.fish,
+                        size: 36.0,
+                        color: Colors.black12,
                       ),
                     ),
                   ),
@@ -68,12 +66,12 @@ class CritterListTile extends StatelessWidget {
               ),
               Expanded(
                 child: Container(
-                  margin: EdgeInsets.symmetric(
+                  margin: const EdgeInsets.symmetric(
                     horizontal: 8.0,
                     vertical: 8.0,
                   ),
-                  padding: EdgeInsets.all(8.0),
-                  decoration: BoxDecoration(
+                  padding: const EdgeInsets.all(8.0),
+                  decoration: const BoxDecoration(
                     color: Colors.white10,
                     borderRadius: BorderRadius.all(
                       Radius.circular(8.0),
@@ -86,12 +84,13 @@ class CritterListTile extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
                             Text(
-                              '${critter.getName(filter.language)}'.titleCase,
+                              critter.getName(filter.language).titleCase,
                               style: Theme.of(context).textTheme.subtitle1,
                             ),
                             Text(
-                              '${filter.isNorth ? critter.getMonthAvailableNorth : critter.getMonthAvailableSouth}'
-                                  .titleCase,
+                              filter.isNorth
+                                  ? critter.getMonthAvailableNorth
+                                  : critter.getMonthAvailableSouth.titleCase,
                               style: Theme.of(context)
                                   .textTheme
                                   .bodyText1

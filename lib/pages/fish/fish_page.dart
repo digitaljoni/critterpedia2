@@ -7,10 +7,10 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class FishPage extends StatelessWidget {
-  FishPage({this.fileName, Key key}) : super(key: key);
+  const FishPage({this.fileName, Key key}) : super(key: key);
 
   static const routeName = '/fish/:fileName';
-  static var routeHandler = Handler(
+  static Handler routeHandler = Handler(
       handlerFunc: (BuildContext context, Map<String, List<String>> params) {
     return FishPage(fileName: params['fileName'][0]);
   });
